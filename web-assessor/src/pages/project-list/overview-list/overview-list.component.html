@@ -1,0 +1,41 @@
+<div class="overview">
+  <div class=" echart-con row ">
+    <div class="box-out col col-auto " *ngFor='let lis of all; let i = index' (click)="addChart(i)">
+      <img class="poss" (click)="open(i)" src="assets/img/add.png" alt="">
+      <select *ngIf='se === i && sel' class="sel" name="" id="">
+        <option value="">动力素质报告</option>
+        <option value="">风格素质报告</option>
+        <option value="">效率素质报告</option>
+        <option value="">认知行为风格</option>
+      </select>
+      <div echarts [options]="lis"
+           class="chart col col-auto "
+      >
+      </div>
+    </div>
+  </div>
+  <div class=" overview-foot row">
+    <div class="col col-auto left">
+      <div class="left-com">
+        <div class="blue " (click)="rep()"> 适应性报告</div>
+        <div class="row "><span class="left1">内容</span><span>进度</span></div>
+        <div *ngFor='let n of report'><span class="left1">{{n.title}}</span><span>{{n.children[1]}}</span></div>
+        <div class="blue " (click)="rep()">报告总览</div>
+        <div class="row "><span class="left1">内容</span><span>进度</span></div>
+        <div *ngFor='let n of report'><span class="left1">{{n.title}}</span><span>{{n.children[2]}}</span></div>
+      </div>
+    </div>
+    <div class="col col-auto right">
+      <div *ngFor = 'let c of report '>
+        <span class="tit">{{c.title}}</span>
+        <div class="tit-d">{{c.content}}</div>
+        <!--<span class="tit">领导素质</span>-->
+        <!--<div class="tit-d">-->
+          <!--很多人常常有这样的情绪，总是觉得组织或者上司亏待了他们-->
+          <!--或者是怀才不遇，其实这是个人的偏见。-->
+          <!--一位知识工作者，他的“表现”是由，他个人的贡献而定的。-->
+        <!--</div>-->
+      </div>
+    </div>
+  </div>
+</div>

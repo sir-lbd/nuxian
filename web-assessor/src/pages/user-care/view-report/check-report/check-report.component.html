@@ -1,0 +1,129 @@
+
+<div class="page content">
+  <div class="row c-wrapper">
+    <div class="col col-auto">
+      <img class="success-img" src="assets/img/success.png">
+    </div>
+    <div class="col info-col">
+      <div class="title">青龙智能能力提升测试-报告</div>
+      <div class="info">您的测评-数据有4项结果为合格-有2项未达标，总体表现未合格，详细结果请查看更多报告。</div>
+    </div>
+  </div>
+  <div class="c-wrapper">
+    <div class="t-t">报告选择<span>温馨提示</span></div>
+    <div class="row i-c">
+      <div class="col col-auto">
+        <img class="l-img" src="assets/img/report.png">
+      </div>
+      <div class="col l-c">
+        <div class="name">基本报告</div>
+        <div class="info">购买后即可查看全部机打报告</div>
+      </div>
+      <div class="col col-auto money">
+        <!--<button mat-button>查看详情</button>-->
+      </div>
+      <div class="col col-auto money" [class.s-r]="report > 0 ">
+        9.9元
+      </div>
+      <div class="col col-auto r-b">
+        <mat-radio-group [(ngModel)]="report" (change)="selectReport($event)">
+          <mat-radio-button [checked]="report === 0" [value]="0"></mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+    <div class="row i-c">
+      <div class="col col-auto">
+        <img class="l-img" src="assets/img/person.png">
+      </div>
+      <div class="col l-c">
+        <div class="name">咨询报告</div>
+        <div class="info">更专业精准的测评(<span>基础报告+咨询师报告</span>)</div>
+      </div>
+      <div class="col col-auto money">
+        <!--<button mat-button>查看详情</button>-->
+      </div>
+      <div class="col col-auto money">
+        19.9元起
+      </div>
+      <div class="col col-auto d-b">
+        <button mat-button (click)="openList = !openList"><img [class.down-img]="openList" src="assets/img/down.png"></button>
+      </div>
+    </div>
+  </div>
+  <div class="c-wrapper" *ngIf="openList">
+    <div class="row i-c">
+      <div class="col col-auto">
+        <img class="l-img" src="assets/img/doctor.jpg">
+      </div>
+      <div class="col l-c">
+        <div class="name">咨询师</div>
+        <div class="info">更专业精准的测评(<span>基础报告+咨询师报告</span>)</div>
+      </div>
+      <div class="col col-auto money">
+        <button mat-button (click)="goSelectAssessor()">查看详情</button>
+      </div>
+      <div class="col col-auto money">
+        19.9元
+      </div>
+      <div class="col col-auto r-b">
+        <mat-radio-group [(ngModel)]="report" (change)="selectReport($event)">
+          <mat-radio-button [value]="1"></mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+    <div class="row i-c">
+      <div class="col col-auto">
+        <img class="l-img" src="assets/img/doctor.jpg">
+      </div>
+      <div class="col l-c">
+        <div class="name">咨询师</div>
+        <div class="info">更专业精准的测评(<span>基础报告+咨询师报告</span>)</div>
+      </div>
+      <div class="col col-auto money">
+        <button mat-button (click)="goSelectAssessor()">查看详情</button>
+      </div>
+      <div class="col col-auto money">
+        29.9元
+      </div>
+      <div class="col col-auto r-b">
+        <mat-radio-group [(ngModel)]="report" (change)="selectReport($event)">
+          <mat-radio-button [value]="2"></mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+    <div class="row i-c">
+      <div class="col col-auto">
+        <img class="l-img" src="assets/img/doctor.jpg">
+      </div>
+      <div class="col l-c">
+        <div class="name">咨询师</div>
+        <div class="info">更专业精准的测评(<span>基础报告+咨询师报告</span>)</div>
+      </div>
+      <div class="col col-auto money">
+        <button mat-button (click)="goSelectAssessor()">查看详情</button>
+      </div>
+      <div class="col col-auto money">
+        39.9元
+      </div>
+      <div class="col col-auto r-b">
+        <mat-radio-group [(ngModel)]="report" (change)="selectReport($event)">
+          <mat-radio-button [value]="3"></mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+  </div>
+  <div class="report-info">
+    <div class="t-t">报告介绍</div>
+    <div>
+      <img src="assets/img/detail.png">
+    </div>
+  </div>
+  <div class="row b-c">
+    <div class="col l-b">
+      <button mat-button (click)="backToHome()">返回首页</button>
+    </div>
+    <div class="col r-b">
+      <button mat-button (click)="confirmToPay()">确定购买</button>
+    </div>
+  </div>
+</div>

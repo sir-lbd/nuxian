@@ -1,0 +1,54 @@
+app-evaluation-records {
+  .content {
+    padding: 0 16px;
+  }
+  .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background: #7e8fbc;
+  }
+  .mat-tab-label .mat-tab-label-content {
+    font-size: 1.1rem;
+  }
+  .mat-tab-label {
+    min-width: 110px;
+  }
+  .mat-tab-label, .mat-tab-link {
+
+    color: #333333;
+  }
+  .mat-tab-label:focus:not(.mat-tab-disabled) {
+    color: #7e8fbc;
+  }
+
+  .container {
+    border: 1px solid #d4d4d4;
+    margin: 20px 0 10px 0;
+    .top {
+      background: #f5f5f5;
+      padding: 10px 20px;
+      color: #333333;
+      position: relative;
+      .info {
+        display: inline-block;
+        width: 300px;
+      }
+      .delete {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 44px;
+      }
+    }
+    .item {
+      padding: 0 20px;
+      height: 120px;
+      line-height: 120px;
+      text-align: center;
+      .img-col {
+        text-align: left;
+      }
+      button {
+        color: #c9bc9c;
+      }
+    }
+  }
+}

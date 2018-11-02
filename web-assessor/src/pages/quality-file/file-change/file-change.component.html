@@ -1,0 +1,10 @@
+<div class="f-change">
+  <div class="title">能力测试</div>
+  <button mat-button class="bt1">添加成员</button>
+  <button mat-button class="bt1">批量导入</button>
+  <button mat-button class="bt1">设置所在标签</button>
+  <button mat-button class="bt1">批量删除</button>
+  <div class="c-con row">
+    <div class="col " *ngFor = 'let p of peo; let i = index'>{{p.title}}</div>
+  </div>
+</div>

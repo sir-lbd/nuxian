@@ -1,0 +1,15 @@
+
+<div class="info row">
+  <div class="col col-auto left">
+    <img src="assets/img/back.png" alt="">
+    <div class="us act" > <img src="assets/img/icon-4.png" alt="">用户信息</div>
+  </div>
+  <div class="right col">
+   <div class="row top">
+     <button mat-button  [class.act] = 'com === 0' (click)="goRouter(0)" class="col col-auto">基本信息</button>
+     <button mat-button  [class.act] = 'com === 1' (click)="goRouter(1) " class="col col-auto">账户信息</button>
+   </div>
+    <div class="sim" >请完善以下信息方便我们更好的为您服务</div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

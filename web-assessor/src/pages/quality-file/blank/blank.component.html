@@ -1,0 +1,18 @@
+<div class="quality row">
+  <div class="col col-auto b-left">
+    <img class="zs" src="assets/img/l-3.png" alt="">
+    <div class="row">
+      <button mat-button class="btn-1" [class.act]=' tog === 0' (click)="tog = 0">组织架构</button>
+      <button mat-button class="btn-2" [class.act]=' tog === 1' (click)="tog = 1">标签组</button>
+    </div>
+    <div class="col b-con">
+      <div class="b-title " *ngFor = 'let n of nav'>
+        <img src="assets/img/icon-3.png" alt="">
+        {{n.title}}
+      </div>
+    </div>
+  </div>
+  <div class="b-right">
+    <router-outlet></router-outlet>
+  </div>
+</div>

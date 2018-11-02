@@ -1,0 +1,29 @@
+<div class="psy">
+  <div class=" echart-con row ">
+    <div class="box-out col col-auto "  *ngFor='let lis of all; let i = index' (click)="addChart(i)">
+      <img class="poss"  (click)="open(i)" src="assets/img/add.png" alt="">
+      <select *ngIf = 'se === i && sel' class="sel" name="" id="">
+        <option value="">动力素质报告</option>
+        <option value="">风格素质报告</option>
+        <option value="">效率素质报告</option>
+        <option value="">认知行为风格</option>
+      </select>
+      <div echarts [options]="lis"
+           class="chart col col-auto "
+      >
+      </div>
+    </div>
+  </div>
+  <div class="psy-ffot row">
+    <div class="col col-auto one">
+      <div class="top">能力评语（机打报告）</div>
+      <textarea name="" cols="15" rows="10">能力素质测评是以提高实际业绩为目标，以现实事件为问题原型，以行为分层模式为判断依据，通过测评个人的各项能力素质指标，进而预测个人绩效的方法。简单的说，它可以预测一个人在一般的、常见的情境下和在一个持续的、特定的时期内的行为方式和思维方式。</textarea>
+    </div>
+    <div class="col col-auto one">
+      <img src="assets/img/clock.png" alt="">
+      <div class="top">顾问评价</div>
+      <textarea name="" cols="15" rows="10"></textarea>
+      <button mat-button class="btn1"> 确认</button>
+    </div>
+  </div>
+</div>

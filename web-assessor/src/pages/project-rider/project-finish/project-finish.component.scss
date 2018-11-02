@@ -1,0 +1,80 @@
+app-project-finish{
+  .wxz{
+    cursor: pointer;
+    color: #7e8fbc;
+  }
+  .nl{
+    background: #3498ee;
+  }
+  .xl{
+    background: #33ba99;
+  }
+  .yl{
+    background: #e2ae38;
+  }
+  .zh{
+    background: #f26458;
+  }
+  .project-finish{
+    .finish-title{
+      padding: 10px 0;
+      border-bottom: 1px solid #e5e5e5;
+      input{
+        background: #f5f5f5;
+        border-radius: 13px ;
+        border: 1px solid #f5f5f5;
+        padding-left: 10px;
+      }
+    }
+    .finish-con{
+      margin-top: 40px;
+      .con-list{
+        min-width: 210px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 0 20px #eee;
+        position: relative;
+        padding: 20px;
+        border: 1px solid #e5e5e5;
+        border-radius: 10px;
+        color: #999999;
+        .con-name{
+          color: #333;
+        }
+        .con-white{
+          color: #fff;
+          .colo{
+
+            padding: 4px;
+          }
+        }
+        .ok{
+          z-index: 2;
+          width: 28px;
+          height: 28px;
+          position: absolute;
+          top: -18px;
+          color: #fff;
+          display: inline-flex;
+          background: #3498ee;
+          justify-content: center;
+          align-items: flex-end;
+        }
+        .ok::after{
+          z-index: 1;
+          position: absolute;
+          bottom: -23px;
+          content: '';
+          border: 14px solid #3498ee;
+          border-bottom: 14px solid transparent;
+        }
+        div{
+          padding-top: 10px;
+        }
+        .con-tit{
+          margin-top: 15px;
+        }
+      }
+    }
+  }
+}

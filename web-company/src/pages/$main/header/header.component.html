@@ -1,0 +1,98 @@
+<div class="inner-wrapper row">
+  <div class="col-auto logo-wrapper">
+    <img [src]="'/assets/img/logo-1.png'" (click)="alert()">
+    <!--<span class="logo">沐贤</span>-->
+  </div>
+  <div class="col-auto menu-wrapper">
+    <ng-container [ngSwitch]="menuSmaller ? 1 : 0">
+      <!-- 全部展示 -->
+      <ng-container *ngSwitchCase="0">
+        <ng-container *ngFor="let link of menu">
+          <ng-container *ngIf="link.submenu; else noMenuRef;">
+            <button class="btn btn-link" [matMenuTriggerFor]="btnMenuRef" [class.selected]="link.selected"
+                    [disabled]="link.disabled">{{link.title}}
+            </button>
+            <mat-menu #btnMenuRef="matMenu" classList="submenu-wrapper clear-style {{isBlack ? 'black' : ''}}">
+              <ng-container *ngFor="let item of link.submenu">
+                <button class="btn btn-link btn-block" (click)="selectMenuItem(link, item)"
+                        [disabled]="item.disabled">{{item.title}}
+                </button>
+              </ng-container>
+            </mat-menu>
+          </ng-container>
+          <ng-template #noMenuRef>
+            <button class="btn btn-link" [class.selected]="link.selected" (click)="selectMenuItem(link)"
+                    [disabled]="link.disabled">{{link.title}}
+            </button>
+          </ng-template>
+        </ng-container>
+      </ng-container>
+      <!-- 缩小 -->
+      <ng-container *ngSwitchCase="1">
+        <button class="btn btn-link menu-btn" [matMenuTriggerFor]="btnSamllerMenuRef">
+          <img src="/assets/img/header_menu.png" class="header-menu">
+        </button>
+        <mat-menu #btnSamllerMenuRef="matMenu" classList="submenu-wrapper clear-style {{isBlack ? 'black' : ''}}">
+          <ng-container *ngFor="let link of menu">
+            <ng-container *ngIf="link.submenu; else noMenuRef;">
+              <button mat-menu-item class="btn btn-link btn-block" [matMenuTriggerFor]="btnMenuRef"
+                      [class.selected]="link.selected" [disabled]="link.disabled">{{link.title}}
+              </button>
+              <mat-menu #btnMenuRef="matMenu" classList="submenu-wrapper clear-style {{isBlack ? 'black' : ''}}">
+                <ng-container *ngFor="let item of link.submenu">
+                  <button class="btn btn-link btn-block" (click)="selectMenuItem(link, item)"
+                          [disabled]="item.disabled">{{item.title}}
+                  </button>
+                </ng-container>
+              </mat-menu>
+            </ng-container>
+            <ng-template #noMenuRef>
+              <button mat-menu-item class="btn btn-link btn-block"
+                      (click)="selectMenuItem(link)"
+                      [class.selected]="link.selected"
+                      [disabled]="link.disabled">{{link.title}}
+              </button>
+            </ng-template>
+          </ng-container>
+        </mat-menu>
+      </ng-container>
+    </ng-container>
+  </div>
+  <div class="col"></div>
+  <div class="col col-auto info-wrapper">
+    <img src="assets/img/header.jpg">
+    <span class="mine">{{user?.username}}</span>
+  </div>
+
+  <div class="col col-auto info-wrapper right" (click)="aboutMine()" (mouseover)="showInfo = true;">
+    <img src="assets/img/dot.png">
+    <!--<span class="mine">{{user?.username}}</span>-->
+  </div>
+
+</div>
+<div class="list-wrapper logout" *ngIf="showInfo" (mouseover)="showInfo = true;" (mouseleave)="showInfo = false;">
+  <div>
+    <button mat-button class="item">帮助</button>
+  </div>
+  <div>
+    <button mat-button class="item">建议</button>
+  </div>
+  <div>
+    <button mat-button class="item" (click)="logout()">退出登录</button>
+  </div>
+</div>
+
+<div class="full" *ngIf="showAlert">
+  <div class="con">
+    <div class="t">提示</div>
+    <div class="c">是否确定离开该页面？</div>
+    <div class="row b-c">
+      <div class="col">
+        <button mat-button class="cancel" (click)="showAlert = false;">取消</button>
+      </div>
+      <div class="col">
+        <button mat-button class="confirm" (click)="toInfo(0)">确定</button>
+      </div>
+    </div>
+  </div>
+</div>

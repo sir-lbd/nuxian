@@ -1,0 +1,96 @@
+<!--<menu-page [menu]="menu" [type]="'router'">-->
+
+<!--</menu-page>-->
+<div class="page containers">
+  <div class="row b-img">
+    <div class="col col-4">
+      <div class="tit">
+        <h4>沐贤测评操作流程!!</h4>
+        <div class="bot"></div>
+        <h5>档案管理(测评人员)+项目组=完成发起项目</h5>
+        <h5>专业测评组合+测评师=项目组</h5>
+        <div class="col text">
+          <div >1.首先建立完整的企业人员档案。</div>
+          <div >2.选择我们专业的测评组合（或自由搭配量表）发起测评项目。</div>
+          <div >3.配置好相应的测评人员生成订单、并提交。</div>
+          <div >4.等待测评项目组成员测评并生成机打报告完成测评结果。</div>
+        </div>
+        <div class="row butt">
+          <button mat-button class="btn bt1" (click)="goFile()">创建档案</button>
+          <button mat-button class = " btn" (click)="goTest()">查看测评组合</button>
+        </div>
+      </div>
+    </div>
+    <div class="col com-col">
+      <img class="computer" src="assets/img/computer.png">
+    </div>
+
+  </div>
+  <div class="contain">
+    <div class="project">
+      <div class="title row">
+        <h2>项目管理</h2>
+        您所创建的项目都在这里
+      </div>
+      <div class="nav">
+        <button  mat-button class=" cpp" [class.cp] = types[0] (click)="types[0] = true">测评中</button>
+        <button  mat-button class="cpp" [class.cp] = !types[0] (click)="types[0] = false">测评完成</button>
+      </div>
+
+      <!--<div class="c-c">-->
+        <!--<div class="wrapper" data-anim="base wrapper">-->
+          <!--<div class="circle" data-anim="base left"></div>-->
+          <!--<div class="circle" data-anim="base right"></div>-->
+        <!--</div>-->
+      <!--</div>-->
+
+
+      <div class="row out-list">
+        <div class="list col col-auto" *ngFor = 'let item of products'>
+          <div class="title ">{{item?.name}}</div>
+          <div class="i-c">
+            <div class="date pad10 clb"><img src="assets/img/l-3.png"><span>{{item?.create_time | date: 'yyyy-MM-dd hh:mm:ss'}}</span></div>
+            <div class="date pad10 clb"><img src="assets/img/l-2.png"><span>{{item?.end_time| date: 'yyyy-MM-dd hh:mm:ss'}}</span></div>
+            <div class="text pad10"><img src="assets/img/l-1.png">{{item?.products_describe}}</div>
+
+          </div>
+          <div class="row cen">
+            <div class="col col-auto"  *ngFor = 'let l of [1,1,1,1]'>
+              <div class="circle">15%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="contain">
+    <div class="project">
+      <div class="title row">
+        <h2>新闻资讯</h2>
+        专业的组合项目节省您的时间
+      </div>
+      <div class="nav">
+        <button  mat-button class="cpp " [class.cp] = types[1] (click)="types[1] = true">推荐咨询</button>
+        <button  mat-button class="cpp " [class.cp] = !types[1] (click)="types[1] = false">测评咨询</button>
+      </div>
+      <div class="row out-list">
+        <div class="list row" *ngFor = 'let l of [1,1,1,1]'>
+          <div class="col l-img"><img src="assets/img/doctor.jpg"></div>
+          <div class="col right">
+            <span>Marketing</span>
+            <div class="titles ">Growth your business</div>
+            <span>by admin -25 May.2017</span>
+            <div>
+              you need help your self without no money if you
+            </div>
+            <!--<div class="row cen po">-->
+              <!--<div><img src="assets/img/icon-2.png"></div>-->
+              <!--<div><img src="assets/img/icon-2.png">242</div>-->
+              <!--<div><img src="assets/img/icon-2.png">242</div>-->
+            <!--</div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

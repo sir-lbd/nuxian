@@ -1,0 +1,89 @@
+
+app-department {
+  .f-change {
+    .title {
+      justify-content: space-between;
+      position: relative;
+      border-bottom: 1px solid #999;
+      align-items: center;
+      padding: 10px 20px;
+      margin-bottom: 20px;
+      span{
+        display: inline-flex;
+      }
+      input{
+        position: absolute;
+        right: 0;
+        width: 252px;
+        top: 0;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        padding-left: 10px;
+      }
+    }
+    .bt1 {
+      color: #8f9bbc;
+      border-radius: 6px;
+      border: 1px solid #8f9bbc;
+      margin-right: 20px;
+      &:last-child {
+        margin-right: 0;
+        color: red;
+        border-color: red;
+      }
+    }
+    .del{
+      border-color: Red;
+      color: red;
+    }
+    .f1{
+      background: #f1efef;
+      border-color: #f1efef;
+      color: #999999;
+    }
+    .f-content{
+      margin: 20px 0;
+      border-radius: 8px;
+      .pad10{
+        text-align: center;
+        padding: 20px 0;
+      }
+      .ma{
+        background: #f8fafc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .pd10{
+        padding: 10px 0;
+      }
+      .f-tit{
+        text-align: center;
+        background: #f8fafc;
+        padding: 20px 0;
+      }
+      .f-cons{
+        text-align: center;
+        background: #fffcfa;
+        align-items: center;
+        .icon-more::before{
+          font-size: 22px;
+        }
+      }
+      .cz{
+        position: relative;
+        .btn1,.btn2{
+          position: absolute;
+          color: red;
+        }
+        .btn1{
+          top: -25px;
+        }
+        .btn2{
+          bottom: -25px;
+        }
+      }
+    }
+  }
+
+}

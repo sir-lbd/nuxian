@@ -1,0 +1,36 @@
+div.evaluation-upload {
+  .alert {
+    font-size: 14px;
+  }
+
+  .mat-step-header {
+    pointer-events: none;
+  }
+
+  .mat-form-field.block {
+    width: 100%;
+  }
+
+  .button-wrapper {
+    text-align: right;
+  }
+
+  .select-file-button {
+    margin-bottom: 6px;
+  }
+
+  .code-content {
+    text-align: center;
+    padding-top: 20px;
+
+    .line {
+      padding-top: 8px;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+    .done {
+      width: 36px;
+    }
+  }
+}

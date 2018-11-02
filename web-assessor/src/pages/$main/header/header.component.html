@@ -1,0 +1,74 @@
+<div class="inner-wrapper row">
+  <div class="col-auto logo-wrapper">
+    <img [src]="'/assets/img/logo.png'">
+  </div>
+  <div class="col-auto menu-wrapper">
+    <ng-container [ngSwitch]="menuSmaller ? 1 : 0">
+      <!-- 全部展示 -->
+      <ng-container *ngSwitchCase="0">
+        <ng-container *ngFor="let link of menu">
+          <ng-container *ngIf="link.submenu; else noMenuRef;">
+            <button class="btn btn-link" [matMenuTriggerFor]="btnMenuRef" [class.selected]="link.selected"
+                    [disabled]="link.disabled">{{link.title}}
+            </button>
+            <mat-menu #btnMenuRef="matMenu" classList="submenu-wrapper clear-style {{isBlack ? 'black' : ''}}">
+              <ng-container *ngFor="let item of link.submenu">
+                <button class="btn btn-link btn-block" (click)="selectMenuItem(link, item)"
+                        [disabled]="item.disabled">{{item.title}}
+                </button>
+              </ng-container>
+            </mat-menu>
+          </ng-container>
+          <ng-template #noMenuRef>
+            <button class="btn btn-link" [class.selected]="link.selected" (click)="selectMenuItem(link)"
+                    [disabled]="link.disabled">{{link.title}}
+            </button>
+          </ng-template>
+        </ng-container>
+      </ng-container>
+      <!-- 缩小 -->
+      <ng-container *ngSwitchCase="1">
+        <button class="btn btn-link menu-btn" [matMenuTriggerFor]="btnSamllerMenuRef">
+          <img src="/assets/img/header_menu.png" class="header-menu">
+        </button>
+        <mat-menu #btnSamllerMenuRef="matMenu" classList="submenu-wrapper clear-style {{isBlack ? 'black' : ''}}">
+          <ng-container *ngFor="let link of menu">
+            <ng-container *ngIf="link.submenu; else noMenuRef;">
+              <button mat-menu-item class="btn btn-link btn-block" [matMenuTriggerFor]="btnMenuRef"
+                      [class.selected]="link.selected" [disabled]="link.disabled">{{link.title}}
+              </button>
+              <mat-menu #btnMenuRef="matMenu" classList="submenu-wrapper clear-style {{isBlack ? 'black' : ''}}">
+                <ng-container *ngFor="let item of link.submenu">
+                  <button class="btn btn-link btn-block" (click)="selectMenuItem(link, item)"
+                          [disabled]="item.disabled">{{item.title}}
+                  </button>
+                </ng-container>
+              </mat-menu>
+            </ng-container>
+            <ng-template #noMenuRef>
+              <button mat-menu-item class="btn btn-link btn-block"
+                      (click)="selectMenuItem(link)"
+                      [class.selected]="link.selected"
+                      [disabled]="link.disabled">{{link.title}}
+              </button>
+            </ng-template>
+          </ng-container>
+        </mat-menu>
+      </ng-container>
+    </ng-container>
+  </div>
+  <div class="col"></div>
+  <div class="col col-auto info-wrapper" (click)="aboutMine()" (mouseover)="showInfo = true;">
+    <img src="assets/img/header.jpg">
+    <span class="mine">王先生</span>
+  </div>
+
+</div>
+<!--<div class="list-wrapper" *ngIf="showInfo" (mouseover)="showInfo = true;" (mouseleave)="showInfo = false;">-->
+  <!--<div>-->
+    <!--<button mat-button class="item" (click)="toInfo(0)">用户信息</button>-->
+  <!--</div>-->
+  <!--<div>-->
+    <!--<button mat-button class="item" (click)="toInfo(1)">测评记录</button>-->
+  <!--</div>-->
+<!--</div>-->

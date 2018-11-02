@@ -1,0 +1,213 @@
+<div class="quality row">
+  <div class="col col-auto b-left">
+    <!--<img class="zs" src="assets/img/l-3.png" alt="">-->
+    <div class="row btn-out">
+      <div class="col btn" [class.s-btn]="type === 0" (click)="type = 0">组织架构</div>
+      <div class="col btn" [class.s-btn]="type === 1" (click)="type = 1">标签组</div>
+    </div>
+    <div class="b-con" *ngIf="type === 0">
+      <div *ngIf="frameworks && frameworks?.length">
+        <div class="row item" [class.in-item]="f.type !== 0" *ngFor="let f of frameworks; let i = index;"
+             [class.cover]="f.show" (click)="selectItem($event, f)">
+          <div class="col col-auto">
+            <img class="h-i" *ngIf="f.type !== 2" src="assets/img/folder.png">
+            <img class="h-i" *ngIf="f.type === 2" src="assets/img/icon-4.png">
+          </div>
+          <div class="col">
+            <span>{{f.name}}</span>
+          </div>
+          <div class="col col-auto">
+            <i class="iconfont icon-more" *ngIf="f.show" (click)="f.edit = !f.edit"></i>
+          </div>
+          <div class="operation" *ngIf="f?.edit">
+            <mat-list>
+              <mat-list-item *ngIf="f.type === 0">
+                <button mat-button (click)="showAdd = true; f.edit = false;">添加组织架构</button>
+              </mat-list-item>
+              <mat-list-item *ngIf="f.type === 1">
+                <button mat-button (click)="editName(f)">修改名称</button>
+              </mat-list-item>
+              <mat-list-item *ngIf="f.type === 2">
+                <button mat-button (click)="editName(f)">加入组织架构</button>
+              </mat-list-item>
+              <mat-list-item *ngIf="f.type !== 0">
+                <button mat-button (click)="delete(f)">删除</button>
+              </mat-list-item>
+              <mat-list-item *ngIf="f.type !== 0">
+                <button mat-button (click)="down(f)">下移</button>
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="b-con" *ngIf="type === 1">
+      <div *ngIf="labels && labels?.length">
+        <div class="row item" [class.in-item]="f.type !== 0" *ngFor="let f of labels; let i = index;"
+             [class.cover]="f.show" (click)="selectLabel($event, f)">
+          <div class="col col-auto">
+            <img class="h-i" src="assets/img/folder.png">
+          </div>
+          <div class="col">
+            <span>{{f.name}}</span>
+          </div>
+          <div class="col col-auto">
+            <i class="iconfont icon-more" *ngIf="f.show" (click)="f.edit = !f.edit"></i>
+          </div>
+          <div class="operation" *ngIf="f?.edit">
+            <mat-list>
+              <mat-list-item *ngIf="f.type === 0">
+                <button mat-button (click)="showAdd = true; f.edit = false;">添加标签</button>
+              </mat-list-item>
+              <mat-list-item  *ngIf="f.type !== 0">
+                <button mat-button (click)="editLabelName(f)">修改名称</button>
+              </mat-list-item>
+              <mat-list-item *ngIf="f.type !== 0">
+                <button mat-button (click)="addMemberToLabel(f)">添加成员</button>
+              </mat-list-item>
+              <mat-list-item *ngIf="f.type !== 0">
+                <button mat-button (click)="deleteLabel(f)">删除</button>
+              </mat-list-item>
+              <mat-list-item *ngIf="f.type !== 0">
+                <button mat-button (click)="down(f)">下移</button>
+              </mat-list-item>
+            </mat-list>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="b-right">
+    <div class="f-change">
+      <div class="row title" >
+        <div class="col">沐贤测评</div>
+        <div class="col col-auto in-c">
+          <input type="text" placeholder="">
+          <img src="assets/img/search.png">
+        </div>
+      </div>
+      <div *ngIf="type === 0">
+        <button mat-button class="bt1">添加成员</button>
+        <button mat-button class="bt1">批量导入</button>
+        <!--<button mat-button class="bt1">、设置所在标签</button>-->
+        <button mat-button class="bt1 del">批量删除</button>
+      </div>
+      <div class="f-content" *ngIf="type === 0">
+        <div class="row f-tit" >
+          <mat-checkbox class="col ma"></mat-checkbox>
+          <div class="col">姓名</div>
+          <div class="col">职位</div>
+          <div class="col">效率</div>
+          <div class="col">风格</div>
+          <div class="col">动力</div>
+          <div class="col">心理健康</div>
+          <div class="col">操作</div>
+        </div>
+        <div *ngIf="selectedItems && selectedItems?.length && showDefault">
+          <div class="row f-tit" [class.f-cons]="i % 2 === 0" *ngFor='let item of selectedItems; let i = index'>
+            <mat-checkbox class="col"></mat-checkbox>
+            <div class="col">{{item?.person_user?.name}}</div>
+            <div class="col">经理</div>
+            <div class="col">效率量表1</div>
+            <div class="col">风格量表1</div>
+            <div class="col">动力量表</div>
+            <div class="col">心里量表</div>
+            <div class="col cz">
+              <i class="iconfont icon-more" (click)="item.show = !item.show"></i>
+              <div class="operation members" *ngIf="item?.show">
+                <mat-list>
+                  <mat-list-item><button class="btn1" mat-button (click)="deleteFromFramework(item.id)">删除</button></mat-list-item>
+                  <mat-list-item><button class="btn2" mat-button (click)="toDetail(item)">查看详情</button></mat-list-item>
+                </mat-list>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="no-data" *ngIf="(!selectedItems || !selectedItems?.length) && showDefault">暂无成员</div>
+      </div>
+      <div class="f-content" *ngIf="type === 1">
+        <div class="row f-tit" >
+          <mat-checkbox class="col ma"></mat-checkbox>
+          <div class="col">姓名</div>
+          <div class="col">职位</div>
+          <div class="col">效率</div>
+          <div class="col">风格</div>
+          <div class="col">动力</div>
+          <div class="col">心理健康</div>
+          <div class="col">操作</div>
+        </div>
+        <div *ngIf="selectedLabels && (selectedLabels?.staffs?.length ||  selectedLabels?.leaders?.length) && showDefault">
+          <div class="row f-tit" [class.f-cons]="i % 2 === 0" *ngFor='let item of selectedLabels?.leaders; let i = index'>
+            <mat-checkbox class="col"></mat-checkbox>
+            <div class="col">{{item?.person_user?.name}}</div>
+            <div class="col">上级</div>
+            <div class="col">效率量表1</div>
+            <div class="col">风格量表1</div>
+            <div class="col">动力量表</div>
+            <div class="col">心里量表</div>
+            <div class="col cz">
+              <i class="iconfont icon-more" (click)="item.show = !item.show"></i>
+              <div class="operation members" *ngIf="item?.show">
+                <mat-list>
+                  <mat-list-item><button class="btn1" mat-button (click)="deleteFromLabel(item.id)">删除</button></mat-list-item>
+                  <mat-list-item><button class="btn2" mat-button (click)="toDetail(item)">查看详情</button></mat-list-item>
+                </mat-list>
+              </div>
+            </div>
+          </div>
+          <div class="row f-tit" [class.f-cons]="i % 2 === 0" *ngFor='let item of selectedLabels?.staffs; let i = index'>
+            <mat-checkbox class="col"></mat-checkbox>
+            <div class="col">{{item?.name}}</div>
+            <div class="col">下级</div>
+            <div class="col">效率量表1</div>
+            <div class="col">风格量表1</div>
+            <div class="col">动力量表</div>
+            <div class="col">心里量表</div>
+            <div class="col cz">
+              <i class="iconfont icon-more" (click)="item.show = !item.show"></i>
+              <div class="operation members" *ngIf="item?.show">
+                <mat-list>
+                  <mat-list-item><button class="btn1" mat-button (click)="deleteFromLabel(item.id)">删除</button></mat-list-item>
+                  <mat-list-item><button class="btn2" mat-button (click)="toDetail(item)">查看详情</button></mat-list-item>
+                </mat-list>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="no-data"
+             *ngIf="(!selectedLabels || (!selectedLabels?.staffs?.length &&  !selectedLabels?.leaders?.length)) && showDefault">
+          暂无成员
+        </div>
+      </div>
+    </div>
+    <!--<div class="page-footer">-->
+      <!--<mat-paginator [length]="length" [pageSize]="pageSize" (page)="paginate($event)"-->
+                     <!--[hidePageSize]="false"></mat-paginator>-->
+      <!--<div class="current-page">当前页数：<span>{{page}}</span></div>-->
+
+    <!--</div>-->
+  </div>
+</div>
+
+<div class="alert-model" *ngIf="showAdd" [class.slipUp]="showAdd" >
+  <div class="a-content slipUp" >
+    <div>
+      <i class="material-icons close" (click)="showAdd = false">close</i>
+      <div class="title" *ngIf="type === 0">添加架构</div>
+      <div class="title" *ngIf="type === 1">添加标签</div>
+      <div class="tips">
+        <input placeholder="请输入架构名称" *ngIf="type === 0" [(ngModel)]="framework.name">
+        <input placeholder="请输入标签名称" *ngIf="type === 1" [(ngModel)]="label.name">
+      </div>
+      <div class="row">
+        <div class="col" >
+          <button mat-button class="l-b" (click)="showAdd = false">取消</button>
+        </div>
+        <div class="col">
+          <button mat-button class="r-b" *ngIf="type === 0" (click)="addSubdivision()">确定</button>
+          <button mat-button class="r-b" *ngIf="type === 1" (click)="addLabel()">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

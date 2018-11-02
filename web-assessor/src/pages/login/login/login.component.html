@@ -1,0 +1,36 @@
+<div class="login">
+  <div class="login-con row">
+    <div class="col col-auto login-left">
+     <div class="row left-con">
+       <div class="col col-auto"><img src="assets/img/doctor.jpg" alt=""></div>
+       <div class="col col-auto">
+         <img src="assets/img/ali-pay.png" alt="">
+         <div>沐贤</div>
+       </div>
+     </div>
+
+    </div>
+    <div class="col col-auto login-right">
+      <span *ngIf=" togo === -1" class="zh" (click)=" togo = 0; mobile = 0 ">账号登入</span>
+      <span *ngIf=" togo === 0" class="zh" (click)=" togo = -1  ">二维码登入</span>
+      <div class="jg" *ngIf="type === 0">机构登入</div>
+      <div class="jg" *ngIf="type === 1">个人登入</div>
+      <div class="jg" *ngIf="type === 2">测评师登入</div>
+      <div class="jg" *ngIf="type === 3">测评师登入</div>
+      <div *ngIf='togo === 0'>
+        <form action="">
+          <input class="row" type="text" placeholder="请输入手机号/账号">
+          <input *ngIf = 'mobile === 0' class="row" type="text" placeholder="请输入密码">
+          <input *ngIf = 'mobile === 1' class="row" type="text" placeholder="请输入验证码">
+        </form>
+        <div class="row bet"><span class="pho" (click)="mobile = 1">短信验证码登入</span> <span class="forget">忘记密码？</span></div>
+        <button mat-button class="btnd">登入</button>
+      </div>
+      <div class="row qr" *ngIf='togo === -1'>
+        <img src="assets/img/f_code.png" alt="失败">
+      </div>
+      <div class="c9">注册即代表同意《沐贤协议》《隐私政策》</div>
+      <div class="c8" (click)="goRegister()">注册机构号</div>
+    </div>
+  </div>
+</div>

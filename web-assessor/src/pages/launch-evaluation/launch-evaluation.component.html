@@ -1,0 +1,80 @@
+
+<div class="p-container">
+  <div class="row row-end">
+    <input class="in" type="text" placeholder="查询">
+    <button class="btn" *ngIf = 'type !== 2' (click)="type = 2">创建项目</button>
+    <button class="btn btn-l" *ngIf = 'type == 2' (click)="cancelSelect()">取消选择</button>
+    <button class="btn" *ngIf = 'type == 2' (click)="confirmSelect()">确认选择</button>
+  </div>
+  <div class="t-content">
+    <div class="row row-bas">
+      <h3>我们的测试产品</h3>
+      专业的组合项目节省您的时间
+    </div>
+    <div class="row nav-f" >
+      <div class="col col-auto p-nav" [class.p-act]= "i === type "  (click)=" chose(i)" *ngFor = 'let b of nav; let i = index'>
+        {{b.title}}
+      </div>
+    </div>
+    <div class="row" *ngIf="type !== 2">
+      <div class="col col-auto box" *ngFor = 'let nav of recommendList' [class.selected]="nav?.select"  (click)="selectProduct(nav)">
+        <div class="title m-b">{{nav?.name}}</div>
+        <div class="row m-b">
+          <div class="col col-auto six">量表：</div>
+          <div class="col m-b">
+            <div class="row jsb">
+              <span class="sp">16pf</span>
+            </div>
+          </div>
+        </div>
+        <div class="m-b six">测评师：咨询师、高级咨询师、专家</div>
+        <div class="row m-b six">
+          <div class="col col-auto">受众：</div>
+          <span class="col col-auto">企业中高级管理人员</span> 、<span class="col col-auto">团队匹配分析</span>
+        </div>
+        <div class="row space-around">
+          <img src="assets/img/l-4.png">
+          <div class="col col-auto b-c">共{{nav?.num}}章 {{nav?.qnum}}道 {{nav?.consum_time / 60}}分钟</div>
+          <button class="btn b-btn">查看详情</button>
+        </div>
+
+      </div>
+    </div>
+    <div class="row" *ngIf="type === 2">
+      <div class="col col-auto box" *ngFor='let nav of assessments' [class.selected]="nav?.select"  (click)="selectAssessment(nav)">
+        <div>
+          <div class="title m-b">{{nav?.name}}</div>
+          <div class="row m-b six">
+            <div class="col col-auto">受众：</div>
+            <span class="col col-auto">企业中高级管理人员</span> 、<span class="col col-auto">团队匹配分析</span>
+          </div>
+          <div class="row space-around">
+            <img src="assets/img/l-4.png" alt="">
+            <div class="col col-auto b-c">共{{nav?.num}}章 {{nav?.qnum}}道 {{nav?.consum_time / 60}}分钟</div>
+            <button class="btn b-btn">查看详情</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="row row-bas">
+        <h3>我们的测评师</h3>
+        专业的测评师为您精心测评
+      </div>
+      <div class="row bot">
+        <div class="col col-auto w-30" *ngFor = 'let f of appraisers'>
+          <div><img src="assets/img/doctor.jpg"></div>
+          <div class="b-t">{{f.title}}</div>
+          <div class="b-t b-c">{{f.description}}</div>
+          <div class="row cho">
+            <div class="col col-auto">宏伟专选</div>
+            <div class="col col-auto">宏伟专选</div>
+            <div class="col col-auto">宏伟专选</div>
+            <div class="col col-auto">宏伟专选</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

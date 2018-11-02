@@ -1,0 +1,47 @@
+<div class="page-header">评估通道：{{type.includes('0') ? '快速评估' : '专业评估'}}</div>
+
+<div class="alert alert-warning" role="alert">
+  温馨提示：请确认您下载的模板是否与该 <b>评估通道</b> 对应，否则将会上传失败。
+</div>
+
+<mat-horizontal-stepper [linear]="true" #stepper>
+  <mat-step [stepControl]="group">
+    <ng-template matStepLabel>填写资料</ng-template>
+    <form [formGroup]="group">
+      <mat-form-field class="block">
+        <input matInput placeholder="企业名称" formControlName="name" required>
+      </mat-form-field>
+      <mat-form-field class="block">
+        <input matInput placeholder="电话号码" formControlName="phone" required>
+      </mat-form-field>
+      <mat-form-field class="block">
+        <input matInput placeholder="电子邮箱" formControlName="email" required>
+      </mat-form-field>
+      <mat-form-field class="block">
+        <input matInput placeholder="上传模板" [disabled]="true" required>
+        <div matSuffix class="btn btn-primary btn-sm select-file-button" (click)="selectFile()">选择附件</div>
+      </mat-form-field>
+    </form>
+
+    <div class="button-wrapper">
+      <button mat-flat-button (click)="upload(stepper)">下一步</button>
+    </div>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>扫码登陆</ng-template>
+    <div class="code-content">
+      <div class="line">微信扫描下方二维码可直接登录蓝海股权</div>
+      <div class="line">关注官方微信可直接在手机客户端查阅估计消息及报告</div>
+      <div class="code" (click)="done(stepper)">二维码</div>
+    </div>
+  </mat-step>
+
+  <mat-step>
+    <ng-template matStepLabel>提交成功</ng-template>
+    <div class="code-content">
+      <img src="/assets/img/done.png" class="done">
+      <div class="line">资料已上传成功，系统正在审核，请耐心等待！</div>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

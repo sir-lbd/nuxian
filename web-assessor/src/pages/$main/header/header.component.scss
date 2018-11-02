@@ -1,0 +1,132 @@
+page-header {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+  transition: all .5s cubic-bezier(.35, 0, .25, 1);
+  background-color: #445279;
+
+  .inner-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    box-sizing: border-box;
+    padding: 0 16px;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+
+    .logo-wrapper {
+      width: 128px;
+    }
+
+    .menu-wrapper {
+      height: 100%;
+
+      .btn {
+        height: 100%;
+      }
+    }
+
+    .info-wrapper {
+      //text-align: right;
+      background: transparent;
+      border: 0;
+      //width: 100px;
+      color:#fff;
+      height: 80px;
+      //padding-right:2rem;
+      position: relative;
+      img {
+        width: 30px;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+      }
+      .mine {
+        display: inline-block;
+        height: 80px;
+        line-height: 80px;
+        margin-left: 10px;
+      }
+    }
+
+    .btn-link {
+      color: #fff;
+      opacity: 1;
+      border-radius: 0;
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      &.selected {
+        border-bottom: 2px solid #fff;
+      }
+    }
+  }
+
+  .btn.menu-btn {
+    padding-right: 0;
+    .header-menu {
+      width: 26px;
+    }
+  }
+  .list-wrapper {
+    position: absolute;
+    top: 60px;
+    right: calc(2rem + 16px);
+    background: #ffffff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #ecedf1;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    .item {
+      padding: 10px;
+    }
+    .item:hover {
+      background: #ecedf1;
+    }
+  }
+}
+
+.submenu-wrapper {
+  padding-top: 52px;
+  margin-left: -9px;
+
+  &.black {
+    .mat-menu-content {
+      background-color: #333;
+      border-radius: 4px;
+    }
+  }
+
+  .mat-menu-content {
+    background-color: rgba(0,0,0, 0.6);
+    border-radius: 8px;
+    box-shadow: 0 3px 5px 0 rgba(1, 1, 1, 0.18);
+
+    .mat-menu-item {
+      padding: 0;
+      text-align: center;
+    }
+
+    .btn {
+      color: rgba(255, 255, 255, 0.8);
+      &:hover {
+        color: rgba(255, 255, 255, 0.95);
+      }
+    }
+  }
+}

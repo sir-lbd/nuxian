@@ -1,0 +1,17 @@
+<div class="file-permiss">
+  <div class="title row">孙先生</div>
+  <div class="tog row">
+    <button mat-button *ngFor = 'let b of button; let i = index' (click)="goBlank(i)" >{{b.title}}</button>
+  </div>
+  <div class="row p-con">
+    <div class="col col-auto pleft">
+      <div class="nav-left" [class.act1] = 'i % 2 === 0' [class.act2] = 'i % 2 === 1' *ngFor = 'let n of name; let i = index'>{{n.title}}</div>
+    </div>
+    <div class="col  p-right">
+      <div class="nav-left" [class.act1] = 'i % 2 === 0' [class.act2] = 'i % 2 === 1' *ngFor = 'let n of name; let i = index'>
+        <span>{{n.title}}</span>
+        <input type="checkbox">
+      </div>
+    </div>
+  </div>
+</div>

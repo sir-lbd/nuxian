@@ -1,0 +1,33 @@
+
+<div class=" com row">
+  <div class="col col-auto left">
+    <img class="left-img" src="assets/img/back.png" alt="">
+    <div >
+      <div class=" detail-list" *ngFor = 'let dlist of lists; let i = index'>
+        <div>项目组A（{{dlist.num}}人/测评数{{dlist.testnum}}）</div>
+        <div>开始时间：{{dlist.update}}</div>
+        <div>开始时间：{{dlist.enddate}}</div>
+        <div>项目描述：{{dlist.desc}}</div>
+        <div>项目描述：{{dlist.pro}}</div>
+        <div class="row">
+          <div class="col col-auto">所选量表：</div>
+          <div class="col col-auto" >
+            <div *ngFor = 'let nl of dlist.shet'>
+              <span
+                [class.nl] = 'nl.type === 0'
+                [class.yl] = 'nl.type === 1'
+                [class.xl] = 'nl.type === 2'
+                [class.zh] = 'nl.type === 3'
+              >{{nl.title}}</span>
+              {{nl.cs}}
+            </div>
+          </div>
+        </div>
+        <div>结果反馈形式：{{dlist.sty}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="col right">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="file-author row">
+  <div class="title">
+    <button mat-button [class.act]=" ac === i" *ngFor = 'let p of people; let i = index' (click)=" ac = i">{{p.title}}</button>
+    <input type="text" value="查询">
+  </div>
+  <div class="row bt">
+    <button mat-button class="three"  *ngFor = 'let p of people2; let i = index' >{{p.title}}</button>
+  </div>
+  <div class="bt" *ngIf = 'ac === 0'>
+    <div class="conten row bt mt color1"  >
+      <div class="col tc p10"><input type="checkbox"></div>
+      <div class="col p10" *ngFor=" let x of pcxm"> {{x.title}}</div>
+    </div>
+    <div class="conten row bt mt color2">
+      <div class="col tc p10"><input type="checkbox"></div>
+      <div class="col p10 " *ngFor=" let x of pcxm2"> {{x.title}}</div>
+      <div class="col p10 last" (click)=" open = true">...
+        <div class="last-b col" *ngIf = 'open === true'>
+          <button mat-button  class="red">删除</button>
+          <button mat-button  class="red">编辑授权人</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bt" *ngIf = 'ac === 1'>
+    <div class="conten row bt mt color1"  >
+      <div class="col tc p10"><input type="checkbox"></div>
+      <div class="col p10" *ngFor=" let x of pcxm"> {{x.title}}</div>
+    </div>
+    <div class="conten row bt mt color2">
+      <div class="col tc p10"><input type="checkbox"></div>
+      <div class="col p10 " *ngFor=" let x of pcxm2"> {{x.title}}</div>
+      <div class="col p10 last" (click)=" open = true">...
+        <div class="last-b col" *ngIf = 'open === true'>
+          <button mat-button  class="red">删除</button>
+          <button mat-button  class="red">编辑授权人</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

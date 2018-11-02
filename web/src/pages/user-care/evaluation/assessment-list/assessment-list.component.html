@@ -1,0 +1,31 @@
+<div class="page content">
+  <div class="title">沐贤素质测评</div>
+  <div class="row wrapper">
+    <div class="col col-auto item" *ngFor="let assessment of assessments; let i = index">
+      <div class="tips" *ngIf="i <= current">止</div>
+      <div class="tips tips-no" *ngIf="i > current">未</div>
+      <div class="name">{{i + 1}}.{{assessment?.name}}</div>
+      <div class="desc">{{assessment?.introduce}}</div>
+      <div class="row">
+        <div class="col">
+          <div class="t">时长：{{assessment?.consum_time / 60}}分钟</div>
+          <div class="t">{{4}}章/{{assessment?.num}}道</div>
+        </div>
+        <div class="col col-auto l-c">
+          <div class="label" [style.background]="assessment?.short_name?.color">
+            <div class="t" >{{assessment?.short_name?.name}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row b-c">
+    <div class="col l-c">
+      <button mat-button (click)="back()">返回</button>
+    </div>
+    <div class="col r-c" (click)="toTest()">
+      <button mat-button>开始测评</button>
+    </div>
+  </div>
+</div>

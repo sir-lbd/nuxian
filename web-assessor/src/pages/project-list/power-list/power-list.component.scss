@@ -1,0 +1,44 @@
+app-power-list{
+  .echart-socket{
+    width: calc(100%);
+    margin: 80px auto 0;
+    .act{
+      background: #7e8fbc;
+      color: #F1F1F1;
+    }
+    .echart-top{
+      background: #fff;
+      padding: 10px 0;
+      button{
+        border-radius: 6px;
+      }
+      .yq{
+        display: inline-flex;
+        width: 144px;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 20px;
+        select{
+          border-color: transparent;
+        }
+      }
+      .echart-rt{
+        align-items: center;
+        select{
+          border-color: transparent;
+          margin-right: 20px;
+        }
+        .aft{
+          position: relative;
+          &::after{
+            position: absolute;
+            content: '|';
+            right: 10px;
+            color: #666;
+          }
+        }
+      }
+    }
+
+  }
+}

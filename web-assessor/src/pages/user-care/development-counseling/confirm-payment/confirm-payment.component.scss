@@ -1,0 +1,77 @@
+app-confirm-payment{
+  .content {
+    width: 60%;
+    margin-top: 113px !important;
+    margin-left: 20%;
+  }
+  .box{
+    width: 100%;
+    .top-c {
+      background: #ffffff;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      text-align: center;
+      .title {
+        border-bottom: 1px solid #ecedf1;
+        padding: 16px 0;
+      }
+      .person{
+        height: 150px;
+        line-height: 150px;
+      }
+    }
+  }
+
+  .cut{
+    margin-top: 50px;
+    text-align: left !important;
+    padding: 0 16px;
+    .mode{
+      border-bottom: 1px solid #ecedf1;
+      padding: 16px 0;
+    }
+    .pay-method{
+      padding: 25px 0;
+      .col {
+        padding: 16px 16px 16px 0;
+      }
+      .item {
+        width: 200px;
+        border: 1px solid #ecedf1;
+        img {
+          width: 100%;
+        }
+      }
+      .item:hover {
+        border: 1px solid #FE4B3E;
+      }
+    }
+  }
+
+  .pay-row {
+    padding: 0 !important;
+    .money{
+      float: right;
+      padding: 5px 0;
+      text-align: left;
+      width: 130px;
+      height: 55px;
+      color: #FE4B3E;
+    }
+    .moneys{
+      font-size: 30px;
+    }
+    .pay{
+      button {
+        width: 130px;
+        height: 55px;
+        background: #7E8FBC;
+        line-height: 55px;
+        text-align: center;
+        border-radius: 3px;
+        color: #ffffff;
+      }
+    }
+  }
+}

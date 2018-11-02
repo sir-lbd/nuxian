@@ -1,0 +1,31 @@
+<div class="login">
+  <div class="login-con row">
+    <div class="col login-left">
+      <!--<div class="row left-con">-->
+        <!--<div class="col col-auto">-->
+          <!--<img src="assets/img/logo-w.png" alt="">-->
+        <!--</div>-->
+      <!--</div>-->
+      <img src="assets/img/logo-w.png" alt="">
+    </div>
+    <div class="col login-right">
+      <span *ngIf=" togo === 0" class="zh" (click)=" togo=1;">账号登录</span>
+      <!--<span *ngIf=" togo === 1" class="zh" (click)=" togo=0;">二维码登录</span>-->
+      <div *ngIf='togo === 1'>
+        <div class="title">受测人登录</div>
+        <form action="">
+          <input class="row" name="username" type="text" placeholder="请输入账号" [(ngModel)]="username">
+          <input class="row" name="password" type="password" placeholder="请输入密码" [(ngModel)]="password">
+          <!--<input *ngIf = 'mobile === 1' class="row" type="text" placeholder="请输入验证码">-->
+        </form>
+        <div class="row bet"><span class="pho">短信验证码登录</span> <span class="forget">忘记密码？</span></div>
+        <button mat-button class="btnd" (click)="login()">登录</button>
+      </div>
+      <div class="row qr" *ngIf='togo === 0'>
+        <img src="assets/img/f_code.png" alt="失败">
+      </div>
+      <div class="c9">注册即代表同意《沐贤协议》《隐私政策》</div>
+      <div class="c8" (click)="goRegister()">注册机构号</div>
+    </div>
+  </div>
+</div>

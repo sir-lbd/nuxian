@@ -1,0 +1,59 @@
+app-my-dialog {
+  .item:hover {
+    background: #eeeeee;
+  }
+  .cover {
+    background: #eeeeee;
+  }
+  .mat-dialog-container {
+    height: 50vh !important;
+  }
+
+  .l-col {
+    width: 200px;
+    position: relative;
+    border: 1px solid #eeeeee;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    .title {
+      padding: 10px;
+      text-align: center;
+    }
+    .per-frame {
+      padding: 10px 5px 10px 20px;
+      .member:hover {
+        cursor: pointer;
+        background: #eeeeee;
+      }
+    }
+    .item {
+      cursor: pointer;
+      position: relative;
+      padding: 10px 5px;
+    }
+    .img-c::after {
+      position: absolute;
+      top: 50%;
+      left: -20px;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      content: '';
+      border-top: 6px solid transparent;
+      border-left: 6px solid #5a72a0;
+      border-bottom: 6px solid transparent;
+    }
+    .select::after {
+      position: absolute;
+      top: 50%;
+      left: -20px;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      content: '';
+      border-right: 6px solid transparent;
+      border-top: 6px solid #5a72a0;
+      border-left: 6px solid transparent;
+    }
+  }
+
+}

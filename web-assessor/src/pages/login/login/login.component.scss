@@ -1,0 +1,103 @@
+app-login {
+  $c9: #999999;
+  $c87: #7e8fbc;
+  $zc: #a9a9a9;
+  .login {
+    position: fixed;
+    z-index: 999999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    background: url("assets/img/bg.png");
+    .login-con {
+      width: 55%;
+      flex-wrap: nowrap;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      .login-left {
+        .fir,.sec{
+          width: 100%;
+        }
+        .left-con{
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+        }
+        display: flex;
+        width: calc(100% - 384px);
+        color: #fff;
+        font-weight: 600;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(to bottom right, #9db5dc, #49577d);
+        opacity: 0.9;
+      }
+      .login-right {
+        padding: 40px ;
+        background: #fff;
+        position: relative;
+        span {
+          display: inline-flex;
+        }
+        .zh{
+          position: absolute;
+          right: -6px;
+          transform: rotateZ(45deg);
+          top: 18px;
+          color: #7e8fbc;
+        }
+        .jg {
+          padding: 20px;
+          color: #7e8fbc;
+          text-align: center;
+        }
+        .qr {
+          position: relative;
+          justify-content: center;
+          align-items: center;
+          padding: 35px 0 91px 0;
+          &::after {
+            content: '请使用手机扫码登入';
+            position: absolute;
+            bottom: 40px;
+            color: #333;
+            font-size: 14px;
+          }
+        }
+
+        .bet {
+          justify-content: space-between;
+        }
+        input {
+          border: 0;
+          margin-bottom: 20px;
+          border-bottom: 1px solid $c9;
+          width: 100%;
+        }
+        .pho {
+          color: $c9;
+        }
+        .forget {
+          color: $c87;
+        }
+        .btnd {
+          width: 100%;
+          margin: 40px 0;
+          background: #7e8fbc;
+          color: #fff;
+        }
+        .c9 {
+          color: $c9;
+        }
+        .c8 {
+          text-align: center;
+          color: $c87;
+        }
+      }
+    }
+  }
+}

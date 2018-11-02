@@ -1,0 +1,72 @@
+
+<div *ngIf="config?.type === 1">
+  <h1 mat-dialog-title>{{config.title}}</h1>
+  <div mat-dialog-content>
+    <input matInput [(ngModel)]="config.data">
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">取消</button>
+    <button mat-button [mat-dialog-close]="config.data" cdkFocusInitial>确定</button>
+  </div>
+</div>
+<div *ngIf="config?.type === 2">
+  <h1 mat-dialog-title>{{config.title}}</h1>
+  <div mat-dialog-content>
+    <p>请选择架构</p>
+    <mat-list>
+      <mat-list-item class="row item" [class.cover]="f.id === config?.select?.id" *ngFor="let f of config?.framework"
+                     (click)="selectItem(f)">
+        <span class="col">{{f?.name}}</span>
+        <span class="col col-auto" *ngIf="f.id === config?.select?.id">√</span>
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">取消</button>
+    <button mat-button [mat-dialog-close]="config.select" cdkFocusInitial>确定</button>
+  </div>
+</div>
+<div *ngIf="config?.type === 3">
+  <h1 mat-dialog-title>{{config.title}}</h1>
+  <div mat-dialog-content>
+    <div class="row">
+      <div class="col col-auto l-col">
+        <div class="title">架构成员列表</div>
+        <div class="per-frame" *ngFor="let f of config?.framework"
+                       (click)="selectFramework($event, f)">
+          <div class="row item">
+            <div class="col col-auto" [class.img-c]="!f.select" [class.select]="f.select">
+              <img src="assets/img/folder.png">
+            </div>
+            <span class="col" >{{f?.name}}</span>
+          </div>
+          <mat-list class="row" *ngIf="f?.id === members?.id">
+            <mat-list-item class="row member" *ngFor="let m of members?.members" (click)="addToSelect(m)">
+              <span class="col name">{{m?.person_user?.name}}</span>
+              <span class="col col-auto" *ngIf="array.indexOf(m?.id) >= 0">√</span>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </div>
+      <div class="col col-auto l-col">
+        <div class="title">已选择成员</div>
+        <mat-list>
+          <mat-list-item class="row item" *ngFor="let f of selectArray">
+            <span class="col">
+              <span *ngIf="f?.person_user?.name">{{f?.person_user?.name}}</span>
+              <span *ngIf="!f?.person_user?.name">{{f?.name}}</span>
+            </span>
+            <div class="col col-auto">
+              <img src="assets/img/delete.png" (click)="deleteMember(f)">
+            </div>
+          </mat-list-item>
+        </mat-list>
+      </div>
+    </div>
+
+  </div>
+  <div mat-dialog-actions class="row">
+    <button mat-button class="col" (click)="onNoClick()">取消</button>
+    <button mat-button class="col" [mat-dialog-close]="array" cdkFocusInitial>确定</button>
+  </div>
+</div>

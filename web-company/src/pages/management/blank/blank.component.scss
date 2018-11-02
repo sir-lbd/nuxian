@@ -1,0 +1,63 @@
+app-blank {
+  .b-r {
+    border-right: 2px solid #8a93ab;
+    background: #a9b1c8;
+  }
+  .quality {
+    width: calc(100% - 4rem);
+    margin: 113px auto 0;
+    background: #fff;
+    border-radius: 10px;
+    .b-left {
+      width: 320px;
+      border-right: 1px solid #999;
+      .zs {
+        margin: 20px 0 20px 20px;
+      }
+      .act2 {
+        background: #edf1fc;
+        color: #7e8fbc;
+        border-right: 1px solid #445279;
+      }
+      .b-con {
+        margin-top: 20px;
+        margin-bottom: 40px;
+        .b-title {
+          position: relative;
+          cursor: pointer;
+          padding: 16px 0;
+          .n-div {
+            padding-left: 60px;
+            position: relative;
+          }
+        }
+        .ysj::before {
+          content: '';
+          width: 10px;
+          height: 10px;
+          position: absolute;
+          left: 30px;
+          top: 18px;
+          border: 7px solid transparent;
+          border-left-color: #7e8fbc;
+
+        }
+        .xsj::before {
+          content: '';
+          width: 10px;
+          height: 10px;
+          position: absolute;
+          left: 30px;
+          top: 18px;
+          border: 7px solid transparent;
+          border-top-color: #7e8fbc;
+
+        }
+      }
+    }
+    .b-right {
+      width: calc(100% - 320px);
+      padding: 20px;
+    }
+  }
+}

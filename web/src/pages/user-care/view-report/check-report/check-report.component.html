@@ -1,0 +1,138 @@
+<div class="page content">
+  <div class="row c-wrapper">
+    <div class="col col-auto">
+      <img class="success-img" src="assets/img/success.png">
+    </div>
+    <div class="col info-col">
+      <div class="title">恭喜完成测评</div>
+      <!--<div class="info">您的测评-数据有4项结果为合格-有2项未达标，总体表现未合格，详细结果请查看更多报告。</div>-->
+    </div>
+  </div>
+  <div class="c-wrapper">
+    <div class="t-t">报告选择<span>温馨提示</span></div>
+    <div class="row i-c base">
+      <div class="col col-auto">
+        <img class="l-img" src="assets/img/report.png">
+      </div>
+      <div class="col l-c">
+        <div class="name">基础报告</div>
+        <div class="info">{{machine?.description}}</div>
+      </div>
+      <div class="col col-auto money">
+        <!--<button mat-button>查看详情</button>-->
+      </div>
+      <div class="col col-auto money" [class.s-r]="report > 0 ">
+        <!--{{machine?.price}}-->
+      </div>
+      <div class="col col-auto r-b">
+        <!--<mat-radio-group [(ngModel)]="report" (change)="selectReport($event, machine)">-->
+        <!--<mat-radio-button [checked]="report === 0" [value]="0"></mat-radio-button>-->
+        <!--</mat-radio-group>-->
+        <button mat-button (click)="checkReport()">查看报告</button>
+      </div>
+    </div>
+
+  </div>
+  <div class="c-wrapper">
+    <div class="row i-c">
+      <div class="col col-auto">
+        <img class="l-img" src="assets/img/header.jpg">
+      </div>
+      <div class="col l-c">
+        <div class="name">咨询报告</div>
+        <div class="info">更专业精准的测评(<span>基础报告+咨询师报告</span>)</div>
+      </div>
+      <div class="col col-auto money">
+        <!--<button mat-button>查看详情</button>-->
+      </div>
+      <div class="col col-auto money">
+        <!--19.9元起-->
+      </div>
+      <div class="col col-auto d-b">
+        <!--<button mat-button (click)="openList = !openList"><img [class.down-img]="openList" src="assets/img/down.png"></button>-->
+      </div>
+    </div>
+    <div class="con">
+      <div class="row i-c" *ngFor="let item of appraiser; let i = index">
+        <div class="col col-auto">
+          <img class="l-img" [src]="item?.image_url">
+        </div>
+        <div class="col l-c">
+          <div class="name">{{item?.title}}</div>
+          <div class="info">{{item?.description}}(<span>基础报告+咨询师报告</span>)</div>
+        </div>
+        <div class="col col-auto money">
+          <button mat-button (click)="goSelectAssessor()">查看详情</button>
+        </div>
+        <div class="col col-auto money">
+          {{item?.price}}
+        </div>
+        <div class="col col-auto r-b">
+          <mat-radio-group [(ngModel)]="report" (change)="selectReport($event, item)">
+            <mat-radio-button [value]="i + 1" [disabled]="true"></mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="report-info">
+    <div class="t-t">全部权益 <span>不同测评报告所拥有的权益</span></div>
+    <div class="row s-container">
+      <div class="col col-auto img-c">
+        <img src="assets/img/pre.png" (click)="pre()">
+      </div>
+      <div class="swiper-container col" #Equity>
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" *ngFor="let item of banner; let i = index;">
+            <div class="row">
+              <div class="col" *ngFor="let i of item; let j = index">
+                <div class="row">
+                  <div class="col item" *ngFor="let img of i?.title">
+                    <img *ngIf="i?.num <= select" [src]="img?.img[0]">
+                    <img *ngIf="i?.num > select" [src]="img?.img[1]">
+                    <div class="label" [class.s-c]="i?.num <= select">{{img?.span}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col col-auto img-c">
+        <img src="assets/img/next.png"(click)="next()">
+      </div>
+    </div>
+    <div class="row b-c">
+      <div class="col col-auto">
+        <button mat-button class="s-b" (click)="pre(); select = 0">基础报告</button>
+      </div>
+      <div class="col">
+        <div class="line" [class.s-l]="select >= 1"></div>
+      </div>
+      <div class="col col-auto">
+        <button mat-button [class.s-b]="select >= 1" (click)="pre(); select = 1">咨询师</button>
+      </div>
+      <div class="col">
+        <div class="line" [class.s-l]="select >= 2"></div>
+      </div>
+      <div class="col col-auto">
+        <button mat-button [class.s-b]="select >= 2" (click)="next(); select = 2">高级咨询师</button>
+      </div>
+      <div class="col">
+        <div class="line" [class.s-l]="select >= 3"></div>
+      </div>
+      <div class="col col-auto">
+        <button mat-button [class.s-b]="select >= 3" (click)="next(); select = 3">专家</button>
+      </div>
+    </div>
+  </div>
+  <div class="row b-c">
+    <div class="col l-b">
+      <button mat-button (click)="backToHome()">返回首页</button>
+    </div>
+    <div class="col r-b">
+      <button mat-button (click)="createOrder()">确定购买</button>
+    </div>
+  </div>
+</div>

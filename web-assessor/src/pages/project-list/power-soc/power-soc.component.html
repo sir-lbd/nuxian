@@ -1,0 +1,28 @@
+<div class=" echart-con row ">
+   <div class="box-out col col-auto "  *ngFor='let lis of all; let i = index' (click)="addChart(i)">
+     <img class="poss"  (click)="open(i)" src="assets/img/add.png" alt="">
+     <div *ngIf = 'se === i && sel'>
+       <select  class="sel" name="" id="" (change)="select($event)">
+         <option value="" *ngFor = 'let lis of all; let i = index'>{{lis.title.text}}</option>
+       </select>
+     </div>
+     <div echarts [options]="lis"
+          class="chart col col-auto "
+         >
+     </div>
+   </div>
+</div>
+<div class="row echart-foot">
+  <div class="big col col-auto" echarts [options]="all[num]"></div>
+  <div class="col col-auto text">
+    <div class="zs">受测人自述</div>
+    <textarea name="zs1" cols="15" rows="5">能力测试是以提高自身修为，为基础，德智体美全面发展
+      </textarea>
+    <div class="zs">
+      企业详细信息
+      <img src="assets/img/clock.png" alt="">
+    </div>
+    <textarea name="zs2" cols="15" rows="5" placeholder="请输入..."></textarea>
+    <button mat-button class="up">提交</button>
+  </div>
+</div>

@@ -1,0 +1,101 @@
+div.page.user-care{
+  $b: #5a72a0;
+  $lb: #494949;
+  .containers{
+    .clb{
+      color: #989898;
+    }
+    .b-img{
+      color: #fff;
+      height: 570px;
+      width: 100%;
+     background: url("../../assets/img/d_r1.jpg") repeat;
+      .tit{
+        padding: 10% 0 0 10%;
+        .text{
+          margin-top: 20px;
+        }
+      }
+      .bot{
+        width: 10%;
+        margin: 20px 0;
+        border-bottom: 2px solid #fff;
+      }
+      .butt{
+        margin-top: 40px;
+        .btn{
+          border: 1px solid #fff;
+          color: #fff;
+          background: transparent;
+          padding: 10px;
+          width: 9rem;
+        }
+        .bt1{
+          padding: 10px 15px;
+          margin-right: 20px;
+        }
+      }
+
+    }
+    .contain{
+      position: relative;
+      margin-top: 9rem;
+      padding-left: 50px;
+      .project{
+        .l-img{
+          width: 200px;
+          height: 200px;
+          background: #01A2FD;
+        }
+        .title{
+          color: #333333;
+          align-items: baseline;
+          h2{
+            margin-right: 20px;
+          }
+        }
+        .nav{
+          margin: 10px 0;
+          .cpp{
+            background: none;
+            padding: 10px 20px 10px 10px;
+            outline: none;
+          }
+          .cp{
+            color: $b;
+            border-bottom: 1px solid $b;
+          }
+        }
+        .out-list{
+          margin-top: 20px;
+          .pad10{
+            padding: 10px;
+          }
+          .list{
+            padding: 10px;
+            margin: 20px 20px 0 0;
+            border-radius: 6px;
+            box-shadow: 0 0 10px #ccc;
+            .right{
+              padding: 0 0 0 20px;
+              color: #989898;
+              .titles{
+                color: #333333;
+                align-items: baseline;
+                font-weight: 600;
+                font-size: 1.6rem;
+              }
+            }
+            .cen{
+             justify-content: space-around;
+            }
+            .po{
+              position: absolute;
+              bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

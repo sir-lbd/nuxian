@@ -1,0 +1,136 @@
+app-evaluation {
+  .no-data {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+  }
+  ul,li{
+    list-style: none;
+  }
+  p{
+    margin: 2px;
+    padding: 0;
+  }
+  .center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .search-report{
+
+    .search-report-ul{
+      padding:10px;
+      clear:both;
+      .item{
+        cursor:pointer;
+        margin: 10px;
+        border:1px solid #E1E6EF;
+        box-shadow: 1px 1px 10px #E1E6EF;
+        width:250px;
+        float: left;
+        .report-header{
+          background: #E1E6EF;
+          border-top-left-radius:  2px;
+          border-top-right-radius: 2px;
+          position: relative;
+          padding: 15px;
+          span.status{
+            display: inline-block;
+            border-top-right-radius: 2px;
+            width:60px;
+            height:20px;
+            text-align: center;
+            background: #F47766;
+            color:#fff;
+            position: absolute;
+            top:0;
+            right:0;
+            font-size:14px;
+            font-family: Constantia;
+          }
+          em.icon{
+            display: inline-block;
+            vertical-align: middle;
+            img{
+              width: 55px;
+              height: 55px;
+            }
+          }
+          .report-title{
+            vertical-align: middle;
+            display: inline-block;
+            .title{color:#464647;font-size: 20px;font-weight: bold;}
+            .subtitle{color:#B4B6B9;font-size: 14px;}
+          }
+        }
+        .report-content{
+          padding: 15px;
+          color:#868686;
+          font-size:14px;
+          .detail-list{
+            padding:5px;
+            .label{}
+            .name{
+              padding-left: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px)  {
+  div.evaluation {
+    .menu-wrapper {
+      .menu-content-wrapper {
+        .title {
+          font-size: 25px;
+        }
+
+        .mat-chip-list {
+          margin-top: 20px;
+          width: 112%;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  div.evaluation {
+    .menu-wrapper {
+      .menu-content-wrapper {
+        .title {
+          font-size: 26px;
+        }
+
+        .mat-chip-list {
+          margin-top: 23px;
+          width: 112%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px)  {
+  div.evaluation {
+    .menu-wrapper {
+      .cover {
+        height: 152px;
+      }
+
+      .menu-content-wrapper {
+        .title {
+          font-size: 16px;
+        }
+
+        .mat-chip-list {
+          margin-top: 15px;
+          width: 112%;
+        }
+      }
+    }
+  }
+}

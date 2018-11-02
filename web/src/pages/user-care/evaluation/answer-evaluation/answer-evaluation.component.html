@@ -1,0 +1,172 @@
+<app-loading *ngIf="showLoading"></app-loading>
+<div class="page content">
+  <!--练习题-->
+  <div class="swiper-container" #SwiperPractice [hidden]="!showPractice">
+    <div>下面是{{practice?.length}}个例题，请尝试回答这几个问题。</div>
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let question of practice;let i = index;">
+        <div class="content-answer">
+          <div class="subject-desc">
+            <span class="subject-text">(练习题){{i + 1}}/{{practice?.length}}. </span>
+            <span class="subject-name" [innerHTML]="question?.title"></span>
+          </div>
+          <div class="subject-img">
+            <em><img src="{{question?.title_img}}"/></em>
+          </div>
+          <mat-radio-group [(ngModel)]="question.selected" (change)="selectAnswer($event, question, 0)">
+            <mat-radio-button *ngFor="let option of question?.optionsArr; let i = index;" [value]="option?.option">
+              {{option?.option}}.{{option?.value?.title}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--正式题-->
+  <div class="swiper-container" #SwiperAnswer [hidden]="showPractice && !questionsList?.length">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let question of questionsList;let i = index;">
+        <div class="content-answer">
+          <div class="subject-desc">
+            <span class="subject-text">{{i + 1}}/{{questionsList?.length}}. </span>
+            <span class="subject-name" [innerHTML]="question?.title"></span>
+          </div>
+          <div class="subject-img">
+            <em><img src="{{question?.title_img}}"/></em>
+          </div>
+          <mat-radio-group [(ngModel)]="question.selected" (change)="selectAnswer($event, question, 1)">
+            <mat-radio-button *ngFor="let option of question?.optionsArr; let i = index;" [value]="option?.option">
+              {{option?.option}}.{{option?.value?.title}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--正式题操作按钮-->
+  <div class="btn-box row" *ngIf="questionsList && questionsList?.length">
+    <div class="">
+      <button mat-stroked-button class="prev-nextBtn" (click)="slideToPre()">上一题</button>
+    </div>
+    <div class="">
+      <button mat-stroked-button class="submitBtn" [class.auto]="true" (click)="clickAuto()">
+        <img src="assets/img/pause.jpg" *ngIf="auto">
+        <img src="assets/img/automatic-1.png" *ngIf="!auto">
+        <!--<img src="assets/img/pause.jpg">-->
+      </button>
+    </div>
+    <div class="">
+      <button mat-stroked-button class="prev-nextBtn" (click)="slideToNext()">下一题</button>
+    </div>
+    <div *ngIf="!noAnswerArray.length">
+      <button mat-stroked-button class="prev-nextBtn s-b" (click)="slideToNext();showAlert = true">提交</button>
+    </div>
+  </div>
+  <!--下方进度条-->
+  <div class='progress' (mouseover)="showNoSelected = true;" (mouseleave)="showNoSelected = false;">
+    <div class="p-d row" *ngIf="showNoSelected">
+      <div class="col c-c" *ngFor="let q of questionsList; let i = index;"
+           [class.no-selected]="q?.selected === '' && currentIndex >= i" [class.selected]="q?.selected !== ''">
+        <div class="number" *ngIf="showNoSelected && currentIndex > i && q?.selected === ''">{{i + 1}}</div>
+        <div class="n-p" *ngIf="showNoSelected && currentIndex == i">{{i + 1}}/{{questionsList?.length}}</div>
+        <div class="p-c" *ngIf="currentIndex == i">
+          <div class="p-c-i" *ngIf="showNoSelected"></div>
+          <img class="clock" *ngIf="!showNoSelected" src="assets/img/clock.png">
+        </div>
+      </div>
+    </div>
+    <div class="p-d" *ngIf="!showNoSelected">
+      <div class="time" *ngIf="minutes || seconds" [style.left]="mProgress">{{minutes}}分{{seconds}}秒</div>
+      <mat-progress-bar [value]="progress"></mat-progress-bar>
+    </div>
+  </div>
+</div>
+
+<!--答完练习题提示-->
+<div class="alert-model" *ngIf="showStart" [class.slipUp]="showStart" [class.slipBottom]="!showStart">
+  <div class="a-content slipUp" >
+    <div>
+      <i class="material-icons close" (click)="backToPractice()">close</i>
+      <div class="title" *ngIf="practice?.length">您已完成练习题</div>
+      <div class="title" *ngIf="!practice?.length">暂无练习题</div>
+      <div class="tips">是否开始正式答题</div>
+      <div class="row">
+        <div class="col" *ngIf="practice?.length">
+          <button mat-button class="l-b" (click)="backToPractice()">继续练习</button>
+        </div>
+        <div class="col">
+          <button mat-button class="r-b" (click)="getQuestions()">开始测评</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!--答完正式题的提示-->
+<div class="alert-model" *ngIf="showAlert" [class.slipUp]="showAlert" [class.slipBottom]="!showAlert">
+  <div class="a-content slipUp" >
+    <div *ngIf="noAnswer !== 0">
+      <i class="material-icons close" (click)="toNoAnswer();">close</i>
+      <div class="title">第{{curr_num + 1}}章<span>{{currentAssessment?.name}}</span></div>
+      <div class="row">
+        <div class="col">总题数<span>{{questionsList?.length}}</span>道</div>
+        <div class="col">未答题<span class="no">{{noAnswer}}</span>道</div>
+      </div>
+      <div class="tips" *ngIf="minutes || seconds">请跳转到未答题继续作答</div>
+      <div class="row">
+        <div class="col" *ngIf="minutes || seconds">
+          <button mat-button class="l-b" (click)="backToCheck(); isBack = true">返回检查</button>
+        </div>
+        <div class="col" *ngIf="minutes || seconds">
+          <button mat-button class="r-b" (click)="toNoAnswer();">跳转未答</button>
+        </div>
+        <div class="col" *ngIf="!minutes && !seconds">
+          <button mat-button class="r-b" (click)="toContinue()">继续测评</button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!noAnswer && assessmentList?.length > curr_num + 1">
+      <i class="material-icons close" (click)="showAlert = false">close</i>
+      <div class="title">第{{curr_num + 1}}章<span>{{currentAssessment?.name}}</span>您已完成</div>
+      <div class="row">
+        <div class="col">建议休息十分钟继续测评</div>
+      </div>
+      <div class="row">
+        <div class="col"><span class="c-b">{{0}}</span><span class="l-t">时</span></div>
+        <div class="col"><span class="c-b">{{tenMinutes}}</span><span class="l-t">分</span></div>
+        <div class="col"><span class="c-b">{{tenSeconds}}</span><span class="l-t">秒</span></div>
+      </div>
+      <div class="row b-c">
+        <div class="col" *ngIf="minutes || seconds">
+          <button mat-button class="l-b" (click)="backToCheck(); isBack = true">返回检查</button>
+        </div>
+        <div class="col">
+          <button mat-button class="r-b" (click)="toContinue()">继续测评</button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!noAnswer && assessmentList?.length === (curr_num + 1)">
+      <i class="material-icons close" (click)="showAlert = false">close</i>
+      <div class="title">恭喜您完成全部测评</div>
+      <div class="row">
+        <div class="col t-u-t">用时：</div>
+        <div class="col"><span class="c-b">{{consumeHours}}</span><span class="l-t">时</span></div>
+        <div class="col"><span class="c-b">{{consumeMinutes}}</span><span class="l-t">分</span></div>
+        <div class="col"><span class="c-b">{{consumeSeconds}}</span><span class="l-t">秒</span></div>
+      </div>
+      <div class="t-tips">请您提交答案，我们会生成机打报告</div>
+      <div class="tips">如果您想了解更详细的报告请咨询我们的测评师</div>
+      <div class="row b-c">
+        <div class="col" *ngIf="minutes || seconds">
+          <button mat-button class="l-b" (click)="backToCheck(); isBack = true">返回检查</button>
+        </div>
+        <div class="col">
+          <button mat-button class="r-b" (click)="submit()">提交生成报告</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+

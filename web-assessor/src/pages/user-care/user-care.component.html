@@ -1,0 +1,81 @@
+<!--<menu-page [menu]="menu" [type]="'router'">-->
+
+<!--</menu-page>-->
+<div class="containers">
+  <div class="b-img">
+    <div class="tit">
+      <h3>沐贤测评操作流程!!</h3>
+      <div class="bot"></div>
+      <h4>档案管理(测评人员)+项目组=完成发起项目</h4>
+      <h4>专业测评组合+测评师=项目组</h4>
+      <div class="col text">
+        <div >1.首先建立完整的企业人员档案。</div>
+        <div >2.选择我们专业的测评组合（或自由搭配量表）发起测评项目。</div>
+        <div >3.配置好相应的测评人员生成订单、并提交。</div>
+        <div >4.等待测评项目组成员测评并生成机打报告完成测评结果。</div>
+      </div>
+      <div class="row butt">
+        <button mat-button class="btn bt1" (click)="goFile()">创建档案</button>
+        <button mat-button class = " btn">查看测评组合</button>
+      </div>
+    </div>
+  </div>
+  <div class="contain">
+    <div class="project">
+      <div class="title row">
+        <h2>项目管理</h2>
+        您所创建的项目都在这里
+      </div>
+      <div class="nav">
+        <button  mat-button class=" cpp" [class.cp] = isShow (click)="isShow = !isShow">测评中</button>
+        <button  mat-button class="cpp" [class.cp] = !isShow (click)="isShow = !isShow">测评完成</button>
+      </div>
+     <div class="row out-list">
+       <div class="list col col-auto" *ngFor = 'let l of [1,1,1,1]'>
+         <div class="title ">青龙智能能力提升B项目</div>
+         <div>
+           <div class="date pad10 clb"><img src="assets/img/icon-2.png" alt="">2018-6-7</div>
+           <div class="date pad10 clb"><img src="assets/img/icon-2.png" alt="">2018-6-7</div>
+           <div class="text pad10 clb"><img src="assets/img/icon-2.png" alt="">项目能力提升测评...</div>
+           <div class="row cen">
+             <div class="col col-auto"  *ngFor = 'let l of [1,1,1,1]'>
+               <img src="assets/img/icon-2.png" alt="">
+              <div>15%</div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+    </div>
+  </div>
+  <div class="contain">
+    <div class="project">
+      <div class="title row">
+        <h2>新闻资讯</h2>
+        专业的组合项目节省您的时间
+      </div>
+      <div class="nav">
+        <button  mat-button class="cpp " [class.cp] = !isShow2 (click)="isShow2 = !isShow2">推荐咨询</button>
+        <button  mat-button class="cpp " [class.cp] = isShow2 (click)="isShow2 = !isShow2">测评咨询</button>
+      </div>
+      <div class="row out-list">
+        <div class="list row" *ngFor = 'let l of [1,1,1,1]'>
+          <div class="col l-img"><img src="" alt=""></div>
+          <div class="col right">
+            <span>Marketing</span>
+            <div class="titles ">Growth your business</div>
+            <span>by admin -25 May.2017</span>
+            <div>
+              you need help your self without no money if you
+            </div>
+            <div class="row cen po">
+              <div><img src="assets/img/icon-2.png" alt=""></div>
+              <div><img src="assets/img/icon-2.png" alt="">242</div>
+              <div><img src="assets/img/icon-2.png" alt="">242</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

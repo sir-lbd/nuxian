@@ -1,0 +1,30 @@
+<div class="f-change">
+  <div >
+    <div class="title" >
+      <span>部门</span>
+    </div>
+    <button mat-button class="bt1 del">批量删除</button>
+    <button mat-button class="bt1 f1">保存</button>
+    <div class="c-con row">
+      <div class="col " *ngFor = 'let p of peo; let i = index'>{{p.title}}</div>
+    </div>
+    <div class="f-content" >
+      <div class="row ">
+        <mat-checkbox class="col ma" disabled="disabled"></mat-checkbox>
+        <div class="col pd10 f-tit" *ngFor = 'let p of title1; let i = index'>{{p.title}}</div>
+      </div>
+      <div class="row pd10 f-cons" *ngFor = 'let p of peo; let i = index'
+           [style.background]="i % 2  ? '#f8fafc': '#fffcfa' ">
+        <mat-checkbox class="col"></mat-checkbox>
+        <div class="col " *ngFor = 'let c of p.title1; let i = index'>{{c.title}}</div>
+        <div class="col cz"  (click)="moreC(i)" >
+          <i class="iconfont icon-more" (click)="more = !more"></i>
+          <div *ngIf = 'i === cmun && more' >
+            <button class="btn1" mat-button>删除</button>
+            <button class="btn2" mat-button>编辑部门名称</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

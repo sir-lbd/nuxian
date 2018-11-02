@@ -1,0 +1,186 @@
+
+<div class="row top">
+  <div class="col col-auto hs">
+    <span class="circle co">√</span>配置组织架构
+  </div>
+  <div class="col"><span class="line"></span></div>
+  <div class="col col-auto hs">
+    <span class="circle co">√</span>产品选择(测评师)
+  </div>
+  <div class="col"><span class="line"></span></div>
+  <div class="col col-auto hs">
+    <span class="circle co">√</span>配置项目组
+  </div>
+  <div class="col"><span class="line"></span></div>
+  <div class="col col-auto">
+    <span class="circle lb">4</span>导入成员
+  </div>
+  <div class="col"><span class="no-line"></span></div>
+  <div class="col col-auto hs">
+    <span class="circle b">5</span>提交支付
+  </div>
+</div>
+<div class="f-container row">
+  <div class="col col-auto left">
+    <div class="row space-between">
+      <img src="assets/img/list.png">
+    </div>
+    <div class="con">
+      <div class="p-b">{{product?.name}}（<span class="c">{{importData?.length}}人</span> /测评数 {{assessments?.length * importData?.length}}）</div>
+      <div>开始时间：{{product?.start_time | date: 'yyyy-MM-dd'}}</div>
+      <div>截止时间：{{product?.end_time | date: 'yyyy-MM-dd'}}</div>
+      <div class="p-b">项目描述：{{product?.products_describe}}</div>
+      <div>所选产品：<span class="p" *ngFor="let p of product?.products_list">{{p?.name}}</span></div>
+      <div class="row">
+        <div class="col col-auto">所选量表：</div>
+        <div class="col col-auto">
+          <div class="row" *ngFor="let a of assessments">
+            <span class="l-c" [style.background]="a?.short_name?.color">{{a?.short_name?.name}}</span>
+            <span class="l">{{a?.name}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="row" [hidden]="true">
+        <div class="col col-auto">授权查看：</div>
+        <div class="col col-auto">
+          <div class="row">上级查看</div>
+          <div class="row">李女士 <span class="lb">（财务总监）</span></div>
+        </div>
+      </div>
+      <div>反馈形式：
+        <span>基础数据</span>
+        <span *ngIf="report == 0 || report > 1">、基础报告</span>
+        <span *ngIf="report >= 1">、咨询报告</span>
+      </div>
+      <div>结果测评师：
+        <span *ngIf="appraiser">{{appraiser?.title}}</span>
+        <span *ngIf="!appraiser">暂无</span>
+      </div>
+    </div>
+  </div>
+  <div class="col center ">
+    <div class="in">
+      <input type="text" placeholder="">
+      <img src="assets/img/search.png">
+    </div>
+    <button mat-button class="col col-auto btn">添加成员</button>
+    <button mat-button class="col col-auto btn btn2">批量删除</button>
+
+    <div class='row'>
+      <div class="col col-auto cho" *ngFor = 'let l of importData; let i = index'>
+        <img class="pos" src="assets/img/delete.png" (click)="deleteUser(i)">
+        <div class="tit">{{l?.user.username}}</div>
+        <div class="js lb">技术总监</div>
+        <div class="row por">
+          <div class="col col-auto l-i">
+            <img src="assets/img/printer.png">
+          </div>
+          <div class="col lb"> 基础报告</div>
+          <div class='col col-auto r-i'>
+            <img src="assets/img/automatic-1.png">
+          </div>
+        </div>
+        <div class="row por" ><!--(click)="showAppraiser = true"-->
+          <div class="col col-auto l-d-i">
+            <img src="assets/img/icon-4.png">
+          </div>
+          <div class="col lb" (click)="showAppraiser = true">添加测评师</div>
+          <div class='col col-auto r-i'>
+            <img src="assets/img/automatic-1.png">
+          </div>
+        </div>
+        <div class='row por'>
+          <div class="col col-auto" *ngFor="let a of l?.assessments">
+            <span class="l-c" [style.background]="a?.short_name?.color">{{a?.short_name?.name}}</span>
+          </div>
+          <div class="col"></div>
+          <div class='col col-auto r-i' (click)="showReport = true">
+            <span >更改产品</span>
+            <img src="assets/img/automatic-1.png">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col col-auto right">
+    <div class="in ino">
+      <input type="text" placeholder="">
+      <img src="assets/img/search.png">
+    </div>
+    <div class="row btn-out">
+      <div class="col s-btn btn">组织架构</div>
+      <div class="col btn">标签组</div>
+    </div>
+    <div >
+      <div class="row row-c" [class.ysj]=isShow [class.xsj]=!isShow (click)="isShow=!isShow">
+        <div class="col col-auto">
+          <img class="pos" src="assets/img/folder.png">
+        </div>
+        <div class="col">青龙智能（45）</div>
+        <!--<div class="col col-auto add top-a">+</div>-->
+      </div>
+      <div class="row row-c list" *ngFor="let item of users"
+           (click)="addToImport(item)"
+           (mouseenter)="item.showAdd = true"
+           (mouseleave)="item.showAdd = false">
+        <div class="col col-auto">
+          <img src="assets/img/icon-4.png">
+        </div>
+        <div class="col" >{{item?.username}}</div>
+        <div class="col col-auto add" *ngIf="item?.showAdd && !item?.added" >+</div>
+        <div class="col col-auto add" *ngIf="item?.added">√</div>
+      </div>
+
+    </div>
+  </div>
+  <div class="window" *ngIf='showAppraiser'>
+    <div class="cps">
+      <div class="ce re"> <span>测评师</span>
+        <div class="wrong cp" >
+          <i class="material-icons" (click)="showAppraiser=false">close</i>
+        </div>
+      </div>
+      <div class="cen row">
+        <div class="col col-auto cente" [class.act]='num === i' *ngFor='let c of appraisers; let i = index' (click)="num = i">
+          <img src="assets/img/doctor.jpg" alt="">
+          <div class="zj">{{c?.title}}</div>
+          <div class="zy">{{c?.short_description}}</div>
+          <div class="sp"><span *ngFor="let l of c?.label">{{l}}</span></div>
+        </div>
+      </div>
+      <div class="row ok">
+        <div class="col col-auto com com1" (click)="selectAppraiser(c)">确定</div>
+        <div class="col col-auto com"  (click)=" showAppraiser=false">取消</div>
+      </div>
+    </div>
+  </div>
+  <div class="window" *ngIf=showReport>
+    <div class="cps cps2">
+      <div class="ce re"> <span>所有产品</span>
+        <div class="wrong cp" (click)="showReport = false">
+          <i class="material-icons" (click)=" showAppraiser=false">close</i>
+        </div>
+      </div>
+      <div class="cen ">
+        <div class="cp col col-auto" *ngFor = 'let la of assessments'>
+          <span class="logo-sp" [style.background]="la?.short_name?.color">{{la?.short_name?.name}}</span>
+          <span >{{la?.name}}</span>
+          <input class="in" type="checkbox">
+        </div>
+      </div>
+      <div class="row ok">
+        <div class="col col-auto com com1" (click)="showReport = false">确定</div>
+        <div class="col col-auto com" (click)="showReport = false">取消</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer row">
+  <div class="col col-auto fot1">
+    配置费用：<span class="font">0</span> <span>元</span>
+  </div>
+  <div class="col col-auto">
+    <button mat-button class="bt1" (click)="backTo()">上一步：配置项目组</button>
+    <button mat-button class="bt2" (click)="importMembers()">下一步：提交订单</button>
+  </div>
+</div>

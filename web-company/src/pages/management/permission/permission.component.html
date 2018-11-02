@@ -1,0 +1,19 @@
+<div class="f-change">
+  <div >
+    <div class="title" >
+      <span>权限</span>
+    </div>
+    <div class="c-con row">
+      <div class="col " *ngFor = 'let p of peo; let i = index'>{{p.title}}</div>
+    </div>
+    <div class="f-content">
+      <div class="row ">
+        <div class="col pd10 f-tit" *ngFor = 'let p of peo[0].title1; let i = index'>{{p.title}}</div>
+      </div>
+      <div class="row f-cons" *ngFor = 'let p of peo; let i = index'
+           [style.background]="i % 2  ? '#fffcfa': '#f8fafc' ">
+        <div class="col  pd10 " *ngFor = 'let c of p.title2; let i = index'>{{c.title}}</div>
+      </div>
+    </div>
+  </div>
+</div>

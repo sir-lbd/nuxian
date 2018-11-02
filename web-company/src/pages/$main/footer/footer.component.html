@@ -1,0 +1,66 @@
+<div class="container" [class.add-padding]="addPadding">
+  <div class="row">
+    <div class="col left">
+      <div class="row line line-a">
+        <div class="col-auto" *ngFor="let item of menu" (click)="selectMenuItem(item)">{{item.title}}</div>
+      </div>
+
+      <div class="row line line-b">
+        <div class="col-auto">
+          <img src="/assets/img/f_c.png" class="c-logo">
+        </div>
+        <div class="col-auto t">
+          鲁公网安备
+        </div>
+        <div class="col-auto t">
+          37021202000236
+        </div>
+        <div class="col-auto t">
+          号
+        </div>
+      </div>
+
+      <div class="row line line-c">
+        <div class="col-auto">
+          <img src="/assets/img/f_g.png" class="g-logo">
+        </div>
+        <div class="col-auto t">
+          工商信息
+        </div>
+      </div>
+
+      <div class="row line line-d">
+        <div class="col-auto">
+          ©2011-2016
+        </div>
+        <div class="col-auto">
+          青岛蓝海股权交易中心
+        </div>
+        <div class="col-auto">
+          版权所有
+        </div>
+        <div class="col-auto">
+          鲁ICP备14004804-1
+        </div>
+      </div>
+    </div>
+
+    <div class="col-auto" *ngIf="!smaller"></div>
+
+    <div class="col right" *ngIf="!smaller">
+      <div class="row line line-a">
+        <div class="col">
+          <img src="/assets/img/f_code.png" class="code-a">
+          <div class="code-desc">关注微信</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row newline" *ngIf="smaller">
+    <div class="col line line-a">
+      <img src="/assets/img/f_code.png" class="code-a">
+      <div class="code-desc">关注微信</div>
+    </div>
+  </div>
+</div>

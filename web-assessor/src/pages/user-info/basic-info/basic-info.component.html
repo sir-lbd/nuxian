@@ -1,0 +1,106 @@
+<div class="basic ">
+  <button mat-button class="btn1 col col-auto" [class.act]='act === 0' (click)="act = 0">保存</button>
+  <button mat-button class="btn2 col col-auto" [class.act]='act === 1' (click)="act = 1" >修改</button>
+  <div class="row f-box">
+    <img class="col col-auto" src="assets/img/doctor.jpg" alt="">
+    <div class="col col-auto">
+      <div class="f-div">
+        <span>职位：</span>
+        <input type="text" placeholder="">
+      </div>
+      <div class="f-div">
+        <span>姓名：</span>
+        <input type="text" placeholder="">
+      </div>
+      <div class="f-div">
+        <span>手机号：</span>
+        <input type="text" placeholder="">
+      </div>
+    </div>
+  </div>
+  <div class="row f-box f-box2">
+    <div class="col col-auto">
+      <div class="f-div">
+        <span>性别</span>
+        <select name="" id="sex">
+          <option value="">男</option>
+          <option value="">女</option>
+        </select>
+      </div>
+      <div class="f-div">
+        <span>身份证</span>
+        <input type="text">
+      </div>
+      <div class="f-div">
+        <span>民族</span>
+        <input type="text">
+      </div>
+      <div class="f-div">
+        <span>婚姻状况</span>
+        <select name="" id="">
+          <option value="">未婚</option>
+          <option value="">已婚</option>
+          <option value="">丧偶</option>
+        </select>
+      </div>
+    </div>
+    <div class="f-right col col-auto">
+      <div class="f-div">
+        <span>年龄</span>
+        <input type="text">
+      </div>
+      <div class="f-div row">
+        <span>籍贯</span>
+        <div class="col col-auto mis">
+          <select name="">
+            <option value=""> 黑龙江</option>
+          </select>
+          <select name="">
+            <option value=""> 哈尔滨</option>
+          </select>
+          <select name="">
+            <option value=""> 双压山</option>
+          </select>
+        </div>
+      </div>
+      <div class="f-div">
+        <span>学历</span>
+        <select name="" >
+          <option value="">博士</option>
+          <option value="">硕士</option>
+          <option value="">本科</option>
+        </select>
+      </div>
+      <div class="f-div row">
+        <span>办公地址</span>
+        <div class="col col-auto mis">
+          <select name="">
+            <option value=""> 黑龙江</option>
+          </select>
+          <select name="">
+            <option value=""> 哈尔滨</option>
+          </select>
+          <select name="">
+            <option value=""> 双压山</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="row text-a">
+    <span>个人介绍：</span>
+    <textarea name=""  cols="60" rows="4"></textarea>
+  </div>
+  <div class="row text-a text-b">
+    <span>资格证明</span>
+    <button  class="btn3">
+      上传
+      <input type="file">
+    </button>
+  </div>
+  <div class="row text-a ">
+    <span>工作经历：</span>
+    <textarea name=""  cols="60" rows="4"></textarea>
+  </div>
+</div>

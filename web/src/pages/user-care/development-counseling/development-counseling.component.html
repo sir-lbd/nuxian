@@ -1,0 +1,18 @@
+<div class="search-report">
+  <ul class="search-report-ul row">
+    <li class="col-auto" *ngFor="let report of appraisers" (click)="goExpertSelect()">
+      <div class="report-header">
+        <em class="icon"><img [src]="report?.image_url"/> </em>
+        <div class="report-title">
+          <p class="title">{{report?.title}}</p>
+          <p class="subtitle">{{report?.short_description}}</p>
+        </div>
+      </div>
+      <div class="report-content row">
+        <div class="detail-list col-6" *ngFor="let t of report.label">
+          <span class="label">{{t}}</span>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

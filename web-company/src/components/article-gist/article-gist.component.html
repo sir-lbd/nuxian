@@ -1,0 +1,18 @@
+<h3 class="title" *ngIf="data?.title">
+  <div (click)="navTo(data?.url)">{{data?.title}}</div>
+</h3>
+<div class="info" *ngIf="data?.time || data?.author">
+  <span class="author" *ngIf="data?.author">{{data?.author}}</span>
+  <span class="put-on" *ngIf="data?.time">发布于</span>
+  <span class="time" *ngIf="data?.time">{{data?.time}}</span>
+</div>
+<div class="cover-wrapper" *ngIf="data?.cover">
+  <img  [src]="data.cover">
+</div>
+<div class="subtitle" *ngIf="data?.subtitle">
+  {{data?.subtitle}}
+</div>
+<p class="content" *ngIf="data?.gist">
+  {{data?.gist}}
+</p>
+<ng-content></ng-content>

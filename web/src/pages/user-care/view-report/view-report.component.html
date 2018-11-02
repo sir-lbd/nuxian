@@ -1,0 +1,41 @@
+<div class="search-report" *ngIf="reports && reports.length && isNoData">
+  <ul class="search-report-ul row">
+    <li *ngFor="let report of reports" (click)="checkReport(report)">
+      <div class="col-auto item">
+        <div class="report-header row center">
+          <span class="status">已提交</span>
+          <em class="icon col-4"><img src="{{report?.icon}}"/> </em>
+          <div class="report-title col-8">
+            <p class="title">{{report?.product?.name}}</p>
+            <p class="subtitle">{{report?.product?.products_describe}}</p>
+          </div>
+        </div>
+        <div class="report-content">
+          <div class="detail-list">
+            <span class="label">截止日期：</span>
+            <span class="name">{{report?.product?.end_time | date: 'yyyy-MM-dd'}}</span>
+          </div>
+          <div class="detail-list">
+            <span class="label">测试章节：</span>
+            <span class="name">共{{report?.product?.num}}章</span>
+          </div>
+          <div class="detail-list">
+            <span class="label">答题时间：</span>
+            <span class="name">{{report?.product?.consum_time / 60}}分钟</span>
+          </div>
+          <div class="detail-list">
+            <span class="label">试题数量：</span>
+            <span class="name">{{report?.product?.qnum}}</span>
+          </div>
+          <div class="btn-box">
+            <button mat-stroked-button color="primary" class="btn-search">查看报告</button>
+          </div>
+        </div>
+      </div>
+
+    </li>
+  </ul>
+</div>
+<div class="no-data" *ngIf="(!reports || !reports?.length) && isNoData">
+  暂无数据
+</div>

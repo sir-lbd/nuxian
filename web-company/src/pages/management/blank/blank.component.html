@@ -1,0 +1,22 @@
+
+<div class="quality row" >
+  <div class="col col-auto b-left">
+    <img class="zs" src="assets/img/l-3.png" alt="">
+    <div class="col b-con">
+      <div class="b-title "  [class.ysj] = 'n.open === false'
+           [class.xsj] = 'n.open === true'
+           [class.act2] = 'i === num'
+           *ngFor = 'let n of nav; let i = index'  >
+        <div class="n-div" (click)="chose(i)">
+          <img [src]="n.logo" alt="">
+          {{n.title}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="b-right">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
+

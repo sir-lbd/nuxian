@@ -1,0 +1,100 @@
+<div class="page content">
+  <!--<p>-->
+  <!--具体的答题页面 做完自动提交（模态框提示休息）&#45;&#45;》-->
+  <!--<button (click)="submit()">测评报告</button>-->
+  <!--</p>-->
+  <div class="swiper-container" #SwiperAnswer>
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" *ngFor="let question of questionsList;let i = index;">
+        <div class="content-answer">
+          <div class="subject-desc">
+            <span class="subject-text">{{i + 1}}/{{questionsList?.length}}. </span>
+            <!--<div class="subject-type">({{question?.type_name}})</div>-->
+            <span class="subject-name" [innerHTML]="question?.title"></span>
+          </div>
+          <div class="subject-img">
+            <em><img src="{{question?.title_img}}"/></em>
+          </div>
+          <mat-radio-group [(ngModel)]="question.selected" (change)="selectAnswer($event)">
+            <mat-radio-button *ngFor="let option of question?.optionsArr; let i = index;" [value]="i + 1">
+              {{option?.option}}.{{option?.value?.title}}
+            </mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="btn-box row">
+    <div class="">
+      <button mat-stroked-button class="prev-nextBtn" (click)="slideToPre()">上一题</button>
+    </div>
+    <div class="">
+      <button mat-stroked-button class="submitBtn" [class.auto]="!auto" (click)="clickAuto()">
+        <img src="assets/img/automatic-2.png" *ngIf="auto">
+        <img src="assets/img/automatic-1.png" *ngIf="!auto">
+      </button><!-- (click)="submit()"-->
+    </div>
+    <div class="">
+      <button mat-stroked-button class="prev-nextBtn" (click)="slideToNext()">下一题</button>
+    </div>
+  </div>
+  <!--<button mat-raised-button (click)="openDialog()">对话框</button>-->
+  <div class='progress' (mouseover)="showNoSelected = true;" (mouseleave)="showNoSelected = false;">
+    <div class="p-d row" *ngIf="showNoSelected">
+      <div class="col c-c" *ngFor="let q of questionsList; let i = index;"
+           [class.no-selected]="q?.selected < 0 && currentIndex >= i" [class.selected]="q?.selected > 0">
+        <div class="number" *ngIf="showNoSelected && currentIndex > i && q?.selected === -1">{{i + 1}}</div>
+        <div class="n-p" *ngIf="showNoSelected && currentIndex == i">{{i + 1}}/{{questionsList?.length}}</div>
+        <div class="p-c" *ngIf="currentIndex == i">
+          <div class="p-c-i" *ngIf="showNoSelected"></div>
+          <img class="clock" *ngIf="!showNoSelected" src="assets/img/clock.png">
+        </div>
+      </div>
+    </div>
+    <div class="p-d" *ngIf="!showNoSelected">
+      <div class="time" *ngIf="minutes && seconds" [style.left]="mProgress">{{minutes}}分{{seconds}}秒</div>
+      <mat-progress-bar [value]="progress"></mat-progress-bar>
+    </div>
+  </div>
+</div>
+
+<div class="alert-model" *ngIf="showAlert" [class.slipUp]="showAlert" [class.slipBottom]="!showAlert"><!-- -->
+  <div class="a-content" *ngIf="noAnswer" [class.slipUp]="noAnswer" [class.slipBottom]="!noAnswer">
+    <div class="title">第一章<span>言语理解</span></div>
+    <div class="row">
+      <div class="col">总题数<span>{{questionsList?.length}}</span>道</div>
+      <div class="col">未答题<span class="no">{{noAnswer}}</span>道</div>
+    </div>
+    <div class="tips">请跳转到未答题继续作答</div>
+    <div class="row">
+      <div class="col">
+        <button mat-button class="l-b" (click)="backToCheck()">返回检查</button>
+      </div>
+      <div class="col">
+        <button mat-button class="r-b" (click)="toNoAnswer()">继续作答</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="a-content" *ngIf="!noAnswer" [class.slipUp]="!noAnswer" [class.slipBottom]="noAnswer"><!-- -->
+    <div class="title">恭喜您完成全部测评</div>
+    <div class="row">
+      <div class="col t-u-t">用时：</div>
+      <div class="col"><span class="c-b">{{1}}</span><span class="l-t">时</span></div>
+      <div class="col"><span class="c-b">{{10}}</span><span class="l-t">分</span></div>
+      <div class="col"><span class="c-b">{{55}}</span><span class="l-t">秒</span></div>
+    </div>
+    <div class="t-tips">请您提交答案，我们会生成机打报告</div>
+    <div class="tips">如果您想了解更详细的报告请咨询我们的测评师</div>
+    <div class="row b-c">
+      <div class="col">
+        <button mat-button class="l-b" (click)="backToCheck()">返回检查</button>
+      </div>
+      <div class="col">
+        <button mat-button class="r-b" (click)="submit()">提交生成报告</button>
+      </div>
+    </div>
+  </div>
+</div>
+

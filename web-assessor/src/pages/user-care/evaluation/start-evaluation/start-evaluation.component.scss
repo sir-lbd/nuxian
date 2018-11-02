@@ -1,0 +1,61 @@
+start-evaluation{
+  .content-aptitude{
+    text-align: center;
+    font-size:16px;
+    color:#878787;
+    padding-top: 16px;
+    width: 60%;
+    margin: 0 auto !important;
+    margin-top: 113px !important;
+    h1{
+      font-size: 22px;
+      color:#545454;
+    }
+    p.explain{
+      padding:5px;
+    }
+    p.welcome{
+      text-align: left;
+      text-indent: 2rem;
+      padding:1rem 2rem;
+    }
+    .table-box{
+      text-align: center;
+      padding: 1.5rem 8rem;
+      table{
+        width:100% ;height:100%;
+        tr{
+          td{
+            width:110px;
+            height:45px;
+            text-align: center;
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+
+    .tips{
+      p{
+        padding: 0px;
+        margin: 1px;
+      }
+    }
+
+    p.others{
+      padding:3rem;
+    }
+    .btn-box{
+      text-align: center;
+      button{
+        color:#fff;
+        background:#7E8FBC;
+        border-radius: 5px;
+        width: 110px;
+        height: 45px;
+        border: none;
+      }
+    }
+
+  }
+}

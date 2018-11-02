@@ -1,0 +1,9 @@
+
+<div class=" com row">
+  <div class="col col-auto left">
+    <div class="left-title" [class.act] = 'color === i' (click)="goDetail(i)"   *ngFor = 'let t of left; let i = index;'><img [src]="t.img" alt=""> {{t.title}}</div>
+  </div>
+  <div class="col right">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="untested ">
+  <div class="row un-search">
+    <input type="text" value="查询">
+  </div>
+  <div class="row">
+    <div class="col col-auto un-list" *ngFor = 'let list of lists; let i = index;'
+      (click)="goDetail(i)"
+    >
+      <div class="un-title">{{list.title}}</div>
+      <div class="un-update">
+        <img src="assets/img/icon-4.png" alt="">
+        {{list.update}}
+      </div>
+      <div class="un-enddate">
+        <img src="assets/img/icon-4.png" alt="">
+        {{list.enddate}}
+      </div>
+      <div class="un-num">
+        <img src="assets/img/icon-4.png" alt="">
+        人数：{{list.num}}/测评数：{{list.testnum}}
+      </div>
+      <div class="shet row">
+        <div class="shet-list col col-auto"
+             [class.nl] = 'lis.co === 0'
+             [class.xl] = 'lis.co === 1'
+             [class.yl] = 'lis.co === 2'
+             [class.zh] = 'lis.co === 3'
+             *ngFor = 'let lis of list.shet'>
+          {{lis.title}}
+        </div>
+      </div>
+      <div class="shet shet2 row">
+        <div class="shet-jd col col-auto" *ngFor = 'let lis of list.shet'>
+          {{lis.jd}}%
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="search-report">
+  <ul class="search-report-ul row">
+    <li class="col-auto" *ngFor="let report of reports">
+      <div class="report-header row center">
+        <span class="status">{{report?.status}}</span>
+        <em class="icon col-4"><img src="{{report?.icon}}"/> </em>
+        <div class="report-title col-8">
+          <p class="title">{{report?.title}}</p>
+          <p class="subtitle">{{report?.subtitle}}</p>
+        </div>
+      </div>
+      <div class="report-content">
+        <div class="detail-list" *ngFor="let t of report.details">
+          <span class="label">{{t?.label}}：</span>
+          <span class="name">{{t?.desc}}</span>
+        </div>
+        <div class="btn-box">
+          <button mat-stroked-button color="primary" class="btn-search" (click)="checkReport()">查看报告</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

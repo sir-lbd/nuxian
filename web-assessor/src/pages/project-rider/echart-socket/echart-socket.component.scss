@@ -1,0 +1,98 @@
+app-echart-socket{
+  .echart-socket{
+      width: calc(100%);
+      margin: 80px auto 0;
+    .act{
+      background: #7e8fbc;
+      color: #F1F1F1;
+    }
+    .echart-top{
+      background: #fff;
+      padding: 10px 0;
+      button{
+        border-radius: 6px;
+      }
+      .yq{
+        display: inline-flex;
+        width: 144px;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 20px;
+        select{
+          border-color: transparent;
+        }
+      }
+      .echart-rt{
+        align-items: center;
+        select{
+          border-color: transparent;
+          margin-right: 20px;
+        }
+        .aft{
+          position: relative;
+          &::after{
+            position: absolute;
+            content: '|';
+            right: 10px;
+            color: #666;
+          }
+        }
+      }
+    }
+    .echart-con{
+      width: calc(100% - 4rem);
+      margin: 20px auto;
+      .chart {
+        border-radius: 8px;
+        height: 350px;
+        width: calc(33% - 2rem);
+        background: #FFF;
+        margin-right: 2rem;
+        margin-bottom: 2rem;
+
+      }
+    }
+    .echart-foot{
+      padding-bottom: 40px;
+      .big{
+        padding-bottom: 20px;
+        border-radius: 8px;
+        margin:  0 2rem;
+        background: #fff;
+        width: calc(60% - 4rem);
+        height: 411px;
+      }
+      .text{
+        position: relative;
+        border-radius: 8px;
+        padding: 0 20px 20px;
+        background: #fff;
+        width: calc(40% - 2rem);
+        textarea{
+          width: 100%;
+          border-radius: 8px;
+        }
+        .zs{
+          position: relative;
+          border-left: 1px solid #7e8fbc;
+          color: #7e8fbc;
+          margin: 20px 0;
+          padding-left: 20px;
+          img{
+            position: absolute;
+            right: 20px;
+            top: 4px;
+          }
+        }
+        .up{
+          position: absolute;
+          bottom: 40px;
+          right: 40px;
+          background: #7e8fbc;
+          color: #Fff;
+          border-radius: 6px;
+        }
+      }
+    }
+  }
+}

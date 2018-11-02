@@ -1,0 +1,32 @@
+<div class="echart-socket">
+  <div class="row echart-top">
+    <div class="col col-auto yq">
+      <select name="nm" id="" >
+        <option value="" *ngFor="let nam of name; let i = index "> {{nam.user}}</option>
+      </select>
+    </div>
+    <div class="col">
+      <button mat-button [class.act] = 'act === i' *ngFor = 'let button of butt; let i = index'
+              (click)="goEvery(i)"
+      >{{button.title}}</button>
+    </div>
+    <div class="row echart-rt">
+      <div class="col aft">
+        <select name="cm">
+          <option >选择常模1</option>
+          <option >选择常模2</option>
+        </select>
+      </div>
+      <div class="col">
+        <select name="fw">
+          <option >选择匹配范围1</option>
+          <option >选择匹配范围2</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+
+</div>

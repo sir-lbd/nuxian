@@ -1,0 +1,71 @@
+<!--<script src="position.component.ts"></script>-->
+<div class="f-change">
+  <div>
+    <div class="title">
+      <span>职位</span>
+    </div>
+    <div class="row addDiv">
+      <button mat-button class="bt1 col col-auto" (click)="open = !open">添加职位</button>
+      <div class="col addtit" *ngIf=" open ">
+        <input class="addIn " name="name" [(ngModel)]=" postData.name" placeholder="职位">
+        <input class="addIn " name="company" [(ngModel)]=" postData.company" placeholder="权限数">
+        <input class="addIn " name="permissions" [(ngModel)]=" permissions" placeholder="公司">
+        <button mat-button class="adbtn" (click)="addPossition()">确定</button>
+      </div>
+
+    </div>
+
+    <div class="c-con row">
+      <div class="col " *ngFor='let p of peo; let i = index'>{{p.title}}</div>
+    </div>
+    <div class="f-content">
+
+      <div class="row ">
+        <mat-checkbox class="col ma" disabled="q"></mat-checkbox>
+        <div class="col pds f-tit" *ngFor='let t of title1; let i = index'>{{t.title}}</div>
+      </div>
+
+
+      <div class="row pds f-cons" *ngFor='let p of positionList?.results; let i = index'
+           [style.background]="i % 2  ? '#f8fafc': '#fffcfa' ">
+        <mat-checkbox class="col" [checked]=" i === cmun  "></mat-checkbox>
+        <!--<div class="col ">{{p.name}}</div>-->
+        <!--<div class="col ">{{p.company}}</div>-->
+
+        <input class="col change" [class.act]='i === cmun '
+               [disabled]=' i !== cmun  ' type="text"
+               [(ngModel)]='p.name'>
+        <input class="col change" [class.act]='i === cmun '
+               [disabled]=" i !== cmun  " type="text"
+               [(ngModel)]='p.company'>
+
+        <div class="col cz">
+          <i class="iconfont icon-more" (click)="moreC(i)"></i>
+          <div class="box" *ngIf='i === cmun '>
+            <button class="btn2" mat-button (click)="putPossition(p)">更改授权人
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row p-foot">
+    <span>当前页：{{pageIndex + 1}} </span>
+    <mat-paginator [length]="length"
+                   [pageSize]="10"
+                   [showFirstLastButtons]=true
+                   (page)=" paginate($event)"
+    >
+    </mat-paginator>
+  </div>
+  <!--。。。。。。。。。。。。。。。-->
+</div>
+<div class="twindow" *ngIf='false'>
+  <div class="c-conter">
+    <div class="win-div">
+      <button mat-button class="sure" (click)="openw = !openw">确认</button>
+      <button mat-button class="shit" (click)="openw = !openw">取消</button>
+    </div>
+  </div>
+
+</div>

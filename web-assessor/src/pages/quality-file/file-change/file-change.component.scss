@@ -1,0 +1,22 @@
+
+app-file-change {
+  .f-change {
+    .title {
+      border-bottom: 1px solid #999;
+      align-items: center;
+      padding: 10px 20px;
+      margin-bottom: 20px;
+    }
+    .bt1 {
+      border-radius: 6px;
+      border: 1px solid #8f9bbc;
+      margin-right: 20px;
+      &:last-child {
+        margin-right: 0;
+        color: red;
+        border-color: red;
+      }
+    }
+  }
+
+}

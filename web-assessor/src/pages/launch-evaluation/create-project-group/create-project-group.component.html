@@ -1,0 +1,166 @@
+<div class="l-container">
+  <div class="row top">
+    <div class="col col-auto"><span class="circle lb">1</span>配置组织架构</div>
+    <div class="col"><span class="line"></span></div>
+    <div class="col col-auto"><span class="circle lb">2</span>产品选择测评师</div>
+    <div class="col"><span class="line"></span></div>
+    <div class="col col-auto"><span class="circle lb">3</span>配置项目组</div>
+    <div class="col"><span class="line"></span></div>
+    <div class="col col-auto"><span class="circle b">4</span>导入成员</div>
+  </div>
+  <div>
+    <div class="row chose">
+      <div class="col col-auto ch"> 产品选择</div>
+      <div class="col">
+        <div class="row bot">
+          <div class="col col-auto tit" [class.ys] = 'step === i' *ngFor = 'let p of pub; let i = index' (click)="step = i">{{p.title}}</div>
+        </div>
+        <div class="row t1">
+          <div class="col" *ngIf="step === 0">项目名称</div>
+          <div class="col" *ngIf="step === 1">项目名称</div>
+          <div class="col" *ngIf="step === 0">量表组合</div>
+          <div class="col">咨询级别</div>
+          <div class="col">受众人群</div>
+          <div class="col">版权费</div>
+          <div class="col">信息服务费</div>
+          <div class="col">操作</div>
+        </div>
+        <div class="row item" *ngFor="let item of assessments">
+          <div class="col name">
+            <input type="checkbox" [checked]="item?.select" (change)="select($event, item)">
+            <span>{{item?.name}}</span>
+          </div>
+          <div class="col" *ngIf="step === 0">管理能力倾向、动机、16pf</div>
+          <div class="col">专家/高级咨询师</div>
+          <div class="col">企业中高级人员/团队匹配分析</div>
+          <div class="col centers"><span class="red">0</span>元</div>
+          <div class="col"><span class="red">9.9</span>元</div>
+          <div class="col">查看详情</div>
+        </div>
+
+      </div>
+    </div>
+    <div class="row chose">
+      <div class="col col-auto ch">测评师选择</div>
+      <div class="col">
+        <div class="tips">为了提高测评效率，请选择测评师给您详细评测</div>
+        <div class="row t1">
+          <div class="col">测评等级</div>
+          <div class="col">专业测评范围</div>
+          <div class="col">简介</div>
+          <div class="col">测评年限</div>
+        </div>
+        <div class="row item" *ngFor="let item of appraisers">
+          <div class="col name">
+            <input type="checkbox">
+            <span>{{item?.title}}</span>
+          </div>
+          <div class="col">企业中高级管理人员、团队匹配分析</div>
+          <div class="col">{{item?.description}}</div>
+          <div class="col">8年以上</div>
+        </div>
+      </div>
+    </div>
+    <div class="row chose">
+      <div class="col col-auto ch">结果反馈形式</div>
+      <div class="col">
+        <div class="row">
+          <div class="col col-auto check">
+            <input type="checkbox"><span>基础数据</span>
+            <input type="checkbox"><span>基础报告</span>
+            <input type="checkbox"><span>咨询报告</span>
+          </div>
+          <div class="col tips">基础数据为必选项目，企业可选择结果反馈形式给测试人员购买相应的结果报告。</div>
+        </div>
+      </div>
+      <!--<div class="col col-auto ch">配置项目组</div>-->
+      <!--<div class="col col-auto">-->
+      <!--<div class="row t1">-->
+      <!--<div class="col col-auto tt">项目组名称</div>-->
+      <!--<input class="in" type="text" [(ngModel)]="product.name">-->
+      <!--</div>-->
+      <!--<div class="row t1">-->
+      <!--<div class="col col-auto tt">开始时间</div>-->
+      <!--&lt;!&ndash;<input class="in" type="text" [(ngModel)]="product.start_time">&ndash;&gt;-->
+      <!--<mat-form-field floatLabel="never" class="col col-auto item">-->
+      <!--<input matInput placeholder="开始日期" disabled [(ngModel)]="startFormatDate">-->
+      <!--<input matInput [matDatepicker]="picker1" placeholder="截止日期" disabled style="display: none" [(ngModel)]="product.start_time">-->
+      <!--<mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>-->
+      <!--<mat-datepicker #picker1 disabled="false" (closed)="closeDate(0)"></mat-datepicker>-->
+      <!--</mat-form-field>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col col-auto">-->
+      <!--<div class="row t1">-->
+      <!--<div class="col col-auto tt">结果反馈形式</div>-->
+      <!--<input class="in" type="text" value="青龙智能能力提升项目组">-->
+      <!--</div>-->
+      <!--<div class="row t1">-->
+      <!--<div class="col col-auto tt">授权查看</div>-->
+      <!--<input class="in" type="text" value="青龙智能能力提升项目组">-->
+      <!--</div>-->
+
+      <!--<div class="row t1">-->
+      <!--<div class="col col-auto tt">截止时间</div>-->
+      <!--<mat-form-field floatLabel="never" class="col col-auto item">-->
+      <!--<input matInput placeholder="截止日期" disabled [(ngModel)]="endFormatDate">-->
+      <!--<input matInput [matDatepicker]="picker2" placeholder="截止日期" disabled style="display: none" [(ngModel)]="product.end_time">-->
+      <!--<mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>-->
+      <!--<mat-datepicker #picker2 disabled="false" (closed)="closeDate(1)"></mat-datepicker>-->
+      <!--</mat-form-field>-->
+      <!--</div>-->
+      <!--<div class="row t1">-->
+      <!--<div class="col col-auto tt">描述</div>-->
+      <!--<textarea name="" id="" cols="30" rows="3" [(ngModel)]="product.products_describe">青龙智能</textarea>-->
+      <!--</div>-->
+      <!--</div>-->
+    </div>
+  </div>
+  <div>
+    <div class="chose">
+      <div class="row">
+        <div class="col col-auto ch">项目组名称</div>
+        <div class="col col-auto">
+          <input class="in" type="text" [(ngModel)]="product.name">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-auto ch">开始时间</div>
+        <div class="col col-auto">
+          <!--<input class="in" type="text" [(ngModel)]="product.start_time">-->
+          <mat-form-field floatLabel="never" class="col col-auto item">
+            <input matInput placeholder="开始日期" disabled [(ngModel)]="startFormatDate">
+            <input matInput [matDatepicker]="picker1" placeholder="截止日期" disabled style="display: none" [(ngModel)]="product.start_time">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1 disabled="false" (closed)="closeDate(0)"></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-auto ch">结束时间</div>
+        <div class="col col-auto">
+          <mat-form-field floatLabel="never" class="col col-auto item">
+            <input matInput placeholder="截止日期" disabled [(ngModel)]="endFormatDate">
+            <input matInput [matDatepicker]="picker2" placeholder="截止日期" disabled style="display: none" [(ngModel)]="product.end_time">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2 disabled="false" (closed)="closeDate(1)"></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-auto ch">描述</div>
+        <textarea class="col col-auto" cols="30" rows="3" [(ngModel)]="product.products_describe">青龙智能</textarea>
+      </div>
+      <div class="chose">
+
+      </div>
+  </div>
+
+  </div>
+
+</div>
+
+<div class="im row">
+  <div class="fd">配置费用：<span class="fon">0</span> <span>元</span></div>
+  <div class="col col-auto imc" (click)="confirmCreate()">下一步：配置项目组</div>
+</div>

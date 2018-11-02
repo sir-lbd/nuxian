@@ -1,0 +1,206 @@
+<p>
+  product-com works!
+</p>
+
+<div class="com-container row">
+  <div class="col col-auto left">
+    <img class="c" src="assets/img/back.png" alt="">
+    <div class="c " [class.act] = 'com === 0' (click)="com = 0"><img class="pl" src="assets/img/back.png"  >公司信息</div>
+    <div class="c " [class.act] = 'com === 1' (click)="com = 1"><img class="pl" src="assets/img/back.png"  >订单记录</div>
+  </div>
+
+  <div class="col col-auto right">
+    <div class="row" *ngIf = 'com === 0' >
+      <div class=" tit" *ngFor = 'let i = index;let x of sj1; ' [class.bo]="i === bot" (click)="bot =i; com1 = i " >{{x.tit}}</div>
+    </div>
+    <div class="row bot" *ngIf = 'com === 1'>
+      <div class=" tit" *ngFor = 'let i = index;let x of [1]; ' [class.bo]="i === bot2" (click)="bot2 =i; com1 = i " >全部记录</div>
+    </div>
+    <div class=" tip" *ngIf = 'com === 0  '>
+      请完善以下信息方便我们更好的为您服务。
+    </div>
+    <div *ngIf = 'com === 1  ' class="dd">
+      <div class=" tip" >
+        <span class="ddh">下单时间：</span> <span>2018-12-12 23:12:00</span>
+        <span class="ddh">订单号：</span> <span>59773294</span>
+        <img class="del" src="assets/img/back.png" >
+      </div>
+      <div class="row list">
+        <div class="col">鸿途评测</div>
+        <div class="col">
+          <div>管理能力倾向</div>
+          <div>管理能力倾向</div>
+          <div>管理能力倾向</div>
+          <div>管理能力倾向</div>
+          <div>管理能力倾向</div>
+        </div>
+        <div class="col">
+          <div>数量15</div>
+          <div>数量15</div>
+          <div>数量15</div>
+          <div>数量15</div>
+          <div>数量15</div>
+        </div>
+        <div class="col">
+          <div>机打报告15</div>
+          <div>机打报告15</div>
+          <div>机打报告15</div>
+          <div>机打报告15</div>
+          <div>机打报告15</div>
+        </div>
+        <div class="col">
+          <div>900元</div>
+          <div>900元</div>
+          <div>900元</div>
+          <div>900元</div>
+          <div>900元</div>
+        </div>
+        <div class="col">查看详情</div>
+      </div>
+    </div>
+    <!--。。。。。。。。。。。第二个。。。。。。。。。。。。。。。。。。。-->
+    <div *ngIf = 'com === 1  ' class="dd dd2">
+      <div class="row list">
+        <div class="col"><img src="assets/img/doctor.jpg" alt=""></div>
+        <div class="col space-b">
+          <span>李小姐</span>
+          <span>专家</span>
+        </div>
+
+        <div class="col">
+          <div>鸿途测评</div>
+        </div>
+        <div class="col ">
+          <div class="row space-b"><span>数量15</span> <span>15</span></div>
+          <div class="row space-b"><span>数量15</span> <span>15</span></div>
+          <div class="row space-b"><span>数量15</span> <span>15</span></div>
+        </div>
+        <div class="col">
+          <div>900元</div>
+          <div>900元</div>
+          <div>900元</div>
+        </div>
+        <div class="col">
+          <div>查看详情</div>
+          <div>查看详情</div>
+          <div>查看详情</div>
+        </div>
+      </div>
+    </div>
+    <div class="ch" *ngIf = 'com !== 1'>
+      <button mat-button class="bt1">保存</button>
+      <button mat-button class="bt2">修改</button>
+    </div>
+    <!--................账号信息........................-->
+
+    <div *ngIf = 'com1 === 0 && com !== 1'>
+      <div class=" car">
+        <img src="assets/img/doctor.jpg" alt="失敗">
+        <div> 账号头像</div>
+      </div>
+      <div class="row">
+        <div class="col col-auto input-left">
+          <div class="row input-list">
+            <span class="span">账号昵称：</span>
+            <input type="text" placeholder="昵称">
+          </div>
+          <div class="row input-list">
+            <span class="span">账号：</span>
+            <input type="text" placeholder="账号">
+          </div>
+          <div class="row input-list up">
+            <span class="span">营业执照：</span>
+            <button mat-button>上传</button>
+          </div>
+        </div>
+        <div class="col col-auto input-left input-right">
+          <div class="row input-list">
+            <span class="span">账号昵称：</span>
+            <input type="text" placeholder="昵称">
+          </div>
+          <div class="row input-list">
+            <span class="span">账号：</span>
+            <input type="text" placeholder="账号">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--................公司信息........................-->
+    <div >
+      <div class="row" *ngIf = 'com1 ===1'>
+        <div class="col col-auto input-left">
+          <div class="row input-list">
+            <span class="span">公司名称：</span>
+            <input type="text" placeholder="">
+          </div>
+          <div class="row input-list">
+            <span class="span">联系人姓名：</span>
+            <input type="text" placeholder="">
+          </div>
+          <div class="row input-list">
+            <span class="span">联系人邮箱：</span>
+            <input type="text" placeholder="">
+          </div>
+          <div class="row input-list">
+            <span class="span">联系人电话：</span>
+            <input type="text" placeholder="">
+          </div>
+        </div>
+        <div class="col col-auto input-left input-right">
+          <div class="row input-list">
+            <span class="span">公司规模：</span>
+            <select  >
+              <option value="青龙">27</option>
+            </select>
+          </div>
+          <div class="row input-list">
+            <span class="span">公司地址：</span>
+            <select  >
+              <option value="青龙">27</option>
+            </select>
+          </div>
+          <div class="row input-list">
+            <span class="span">所属行业：</span>
+            <select  >
+              <option value="青龙">27</option>
+            </select>
+          </div>
+          <div class="row input-list">
+            <span class="span">公司类型：</span>
+            <select  >
+              <option value="青龙">27</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="window" *ngIf = false>
+    <div class="cen">
+      <div class="tit">
+        <span>修改密码</span>
+        <img src="assets/img/clock.png">
+      </div>
+      <div class="row input-list">
+        <span class="span">原密码：</span>
+        <input type="text" placeholder="">
+      </div>
+      <div class="row input-list">
+        <span class="span">输入新密码：</span>
+        <input type="text" placeholder="">
+      </div>
+      <div class="row input-list">
+        <span class="span">重复新密码：</span>
+        <input type="text" placeholder="">
+      </div>
+      <div class="row input-list">
+        <span class="span">验证码：</span>
+        <input class = 'yzm' type="text" placeholder="">
+      </div>
+      <div class="row foot">
+        <button mat-button class="btn1">确认</button>
+        <button mat-button class="btn2">取消</button>
+      </div>
+    </div>
+  </div>
+</div>

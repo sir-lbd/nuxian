@@ -1,0 +1,82 @@
+<p>
+  product-pay works!
+</p>
+
+<div class="p-container">
+  <div class="row r1">
+    <div class="row pad pad1">
+      <div class="col ">项目组名</div>
+      <div class="col ">产品名</div>
+      <div class="col ">量表</div>
+      <div class="col ">数量</div>
+      <div class="col ">结果反馈形式</div>
+      <div class="col ">价格</div>
+    </div>
+    <div class="row pad">
+      <div class="col ">青龙智能能力测试</div>
+      <div class="col ">鸿途</div>
+      <div class="col ">
+        <div class="padc" *ngFor = 'let s of [1,1,1,1]'>管理能力倾向</div>
+      </div>
+      <div class="col ">
+        <div class="padc" *ngFor = 'let s of [1,1,1,1]'>15</div>
+      </div>
+      <div class="col ">
+        <div class="padc" *ngFor = 'let j of [1,1,1,1]'>机打报告15</div>
+      </div>
+      <div class="col">
+        <div class="padc" *ngFor = 'let m of [1,1,1,1]'><span class="red">900元</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="row r2">
+    <div class="row pad pad1">
+      <div class="col ">项目组名</div>
+      <div class="col ">测评师</div>
+      <div class="col ">姓名</div>
+      <div class="col ">等级</div>
+      <div class="col ">产品名称</div>
+      <div class="col ">量表</div>
+      <div class="col ">数量</div>
+      <div class="col ">价格</div>
+    </div>
+    <div class="row pad">
+      <div class="col ">青龙智能能力测试</div>
+      <div class="col ">大卫</div>
+      <div class="col ">
+        <div class="padc" >sumer</div>
+      </div>
+      <div class="col ">
+        <div class="padc" >专家</div>
+      </div>
+      <div class="col ">
+        <div class="padc" >鸿途</div>
+      </div>
+      <div class="col ">
+        <div class="padc" *ngFor = 'let j of [1,1,1,1]'>机打报告15</div>
+      </div>
+      <div class="col ">
+        <div class="padc" *ngFor = 'let s of [1,1,1,1]'>15</div>
+      </div>
+      <div class="col">
+        <div class="padc" *ngFor = 'let m of [1,1,1,1]'><span class="red">900元</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="row r3">
+    <div class=" pad">
+      <div class="col ">选择支付方式</div>
+    </div>
+    <div class="row b">
+      <div class="img col col-auto">
+        <img src="assets/img/wx-pay.png" alt="">
+      </div>
+      <div class="img col col-auto">
+        <img src="assets/img/ali-pay.png" alt="">
+      </div>
+    </div>
+    <div class="row foot">
+      合计： <span class="m">3400</span> 元 <span class="pay">确认支付</span>
+    </div>
+    </div>
+</div>

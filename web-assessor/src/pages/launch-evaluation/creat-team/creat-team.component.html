@@ -1,0 +1,134 @@
+<p>
+  create-team works!
+</p>
+
+<div class="l-container">
+  <div class="top row">
+    <div class="col col-auto"><span class="ob">√</span>配置组织架构-------------------</div>
+    <div class="col col-auto"><span class="lb">2</span>产品选择测评师-----------------</div>
+    <div class="col col-auto"><span class="b">3</span>配置项目组---------------------</div>
+    <div class="col col-auto"><span class="b">4</span>导入成员-------------------</div>
+  </div>
+  <div class="row set">
+    <div class="col col-auto">配置架构</div>
+    <div class="col col-auto pz pzz">立即配置</div>
+    <div class="col col-auto pz" (click)=" goImport()">配置完成</div>
+  </div>
+  <div class="chose row">
+    <div class="col col-auto ch"> 产品选择</div>
+    <div class="col">
+      <div class="row bot">
+        <div class="col col-auto tit" [class.ys] = 'lb === i' *ngFor = 'let p of pub; let i = index' (click)="lb = i">{{p.title}}</div>
+      </div>
+      <div class="row t1">
+        <div class="col tt">项目名称</div>
+        <div class="col">量表组合</div>
+        <div class="col">咨询级别</div>
+        <div class="col">受众人群</div>
+        <div class="col centers">版权费</div>
+        <div class="col">信息服务费</div>
+        <div class="col">操作</div>
+      </div>
+      <div class="row p">
+        <div class="col tt">
+          <input type="checkbox">
+          <span>鸿途</span>
+        </div>
+        <div class="col">管理能力倾向、动机、16pf</div>
+        <div class="col">专家/高级咨询师</div>
+        <div class="col">企业中高级人员/团队匹配分析</div>
+        <div class="col centers "><span class="re">0</span>元</div>
+        <div class="col "><span class="re">9.9</span>元</div>
+        <div class="col">查看详情</div>
+      </div>
+      <div class="row p">
+        <div class="col tt">
+          <input type="checkbox">
+          <span>鸿途</span>
+        </div>
+        <div class="col">管理能力倾向、动机、16pf</div>
+        <div class="col">专家/高级咨询师</div>
+        <div class="col">企业中高级人员/团队匹配分析</div>
+        <div class="col centers"><span class="re">0</span>元</div>
+        <div class="col "><span class="re">9.9</span>元</div>
+        <div class="col">查看详情</div>
+      </div>
+      <div class="row">
+        <div>已选项目：</div>
+        <div class="col col-auto ht">鸿途 <img src="assets/img/clock.png" alt=""> </div>
+      </div>
+    </div>
+  </div>
+  <div class="row text">
+    <div class="col col-auto ch">测评师选择</div>
+    <div class="col">
+      <div class="row t1">
+        <div class="col tt">测评等级</div>
+        <div class="col">专业测评范围</div>
+        <div class="col">简介</div>
+        <div class="col">测评年限</div>
+      </div>
+      <div class="row p">
+        <div class="col tt">
+          <input type="checkbox">
+          <span>专家</span>
+        </div>
+        <div class="col">企业中高级管理人员、团队匹配分析</div>
+        <div class="col">精准定位、细节分析高校测评</div>
+        <div class="col">8年以上</div>
+      </div>
+      <div class="row p">
+        <div class="col tt">
+          <input type="checkbox">
+          <span>高级咨询师</span>
+        </div>
+        <div class="col">企业中高级管理人员、团队匹配分析</div>
+        <div class="col">精准定位、细节分析高校测评</div>
+        <div class="col">5年以上</div>
+      </div>
+      <div class="row p">
+        <div class="col tt">
+          <input type="checkbox">
+          <span>咨询师</span>
+        </div>
+        <div class="col">企业中高级管理人员、团队匹配分析</div>
+        <div class="col">精准定位、细节分析高校测评</div>
+        <div class="col">2年以上</div>
+      </div>
+    </div>
+  </div>
+  <!--<div class="row textcon">-->
+    <!--<div class="col col-auto ch">配置项目组</div>-->
+    <!--<div class="col col-auto">-->
+      <!--<div class="row t1">-->
+        <!--<div class="col col-auto tt">项目组名称</div>-->
+        <!--<input class="in" type="text" value="青龙智能能力提升项目组">-->
+      <!--</div>-->
+      <!--<div class="row t1">-->
+        <!--<div class="col col-auto tt">开始时间</div>-->
+        <!--<input class="in" type="text" value="青龙智能能力提升项目组">-->
+      <!--</div>-->
+      <!--<div class="row t1">-->
+        <!--<div class="col col-auto tt">截止时间</div>-->
+        <!--<input class="in" type="text" value="青龙智能能力提升项目组">-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col col-auto">-->
+      <!--<div class="row t1">-->
+        <!--<div class="col col-auto tt">结果反馈形式</div>-->
+        <!--<input class="in" type="text" value="青龙智能能力提升项目组">-->
+      <!--</div>-->
+      <!--<div class="row t1">-->
+        <!--<div class="col col-auto tt">授权查看</div>-->
+        <!--<input class="in" type="text" value="青龙智能能力提升项目组">-->
+      <!--</div>-->
+      <!--<div class="row t1">-->
+        <!--<div class="col col-auto tt">描述</div>-->
+        <!--<textarea name="" id="" cols="30" rows="3">青龙智能</textarea>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+</div>
+<div class="im row">
+  <div class="col col-auto imc" (click)="goImport()">下一步：配置项目组</div>
+</div>

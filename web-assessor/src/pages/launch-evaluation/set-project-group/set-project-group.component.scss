@@ -1,0 +1,135 @@
+app-set-project-group {
+  $b: #5a72a0;
+  $lb: #494949;
+  $six: #666666;
+
+  .i-container {
+    width: calc(100% - 4rem);
+    margin: 80px auto 0;
+    .w120{
+      width: 120px;
+    }
+    .red{
+      color: red;
+    }
+    .mb{
+      margin-bottom: 20px;
+    }
+    .pzz{
+      margin-right: 20px;
+    }
+    .pzz::after{
+      position: absolute;
+      top: 50%;
+      right: 3%;
+      transform: translateY(-50%);
+      content: '>';
+      color: #ccc;
+    }
+    .top{
+      justify-content: space-between;
+      span{
+        justify-content: center;
+        align-items: center;
+        display: inline-flex;
+        height: 24px;
+        width: 24px;
+        background: #7e8fbc ;
+        border-radius: 100%;
+        margin-right: 0.2rem;
+      }
+      .lb{
+        color: #fff;
+      }
+    }
+    .set{
+      margin-top: 1rem;
+      border-radius: 6px;
+      background: #fff;
+      padding: 10px 10px 10px 30px;
+      .t{
+        background: #f8fafc;
+      }
+      .pd{
+        padding: 10px;
+      }
+      .first{
+        padding-left: 30px;
+      }
+      .pz{
+        position: relative;
+        border-radius: 6px;
+        border: 1px solid #ddd;
+        padding:2px 20px ;
+        margin-right: 20px;
+        &:last-child{
+          margin-right: 0;
+        }
+      }
+    }
+    .textcon{
+      padding-left: 30px;
+      padding-bottom: 30px;
+      background: #fff;
+      margin-top: 10px;
+      .t1{
+        margin-top: 20px;
+        padding: 10px 0;
+        border-radius: 6px;
+        margin-right: 20px;
+        input{
+          margin-right: 20px;
+        }
+        input,textarea{
+          width: 260px;
+        }
+      }
+      .tt{
+        width: 120px;
+      }
+      .in{
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        padding-left: 20px;
+        padding-right: 50px;
+      }
+      .ch{
+        padding-top: 30px;
+      }
+      .tit{
+        padding: 10px;
+        cursor: pointer;
+      }
+      .ys{
+        border-bottom: 1px solid #7e8fbc;
+        color: #7e8fbc;
+      }
+      .ht{
+        padding: 2px 8px;
+        border: 1px solid #494949;
+        border-radius: 6px;
+      }
+    }
+    .end{
+      background: #fff;
+      margin-top: 10px;
+      align-items: baseline;
+      justify-content: flex-end;
+      span{
+        display: inline-flex;
+      }
+      .up{
+        cursor: pointer;
+        background: #7e8fbc;
+        color: #fff;
+        padding: 10px 30px;
+        margin-left: 20px;
+      }
+      .size{
+        font-size: 1.6rem;
+        font-weight: 600;
+      }
+    }
+  }
+
+}

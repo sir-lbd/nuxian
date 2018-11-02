@@ -1,0 +1,91 @@
+<!--<menu-page [menu]="menu" [type]="'router'">-->
+
+<!--</menu-page>-->
+<div class="page containers">
+  <div class="row b-img">
+    <div class="col col-4">
+      <div class="tit">
+        <h4>精益人才测评商用解决方案</h4>
+        <div class="bot"></div>
+        <h5>只需两步，便捷管理精益测评项目！</h5>
+        <h5>真量表配合好专家才是商用好测评！</h5>
+        <div class="col text">
+          <div>1.创建标准规范的组织成员素质档案。</div>
+          <div>2.配置量表、专家、报告形式等项目基本要素。</div>
+          <div>3.选择受测人员并提交生成订单。</div>
+          <div>4.监控测评项目进度并分析测评结果。</div>
+        </div>
+        <div class="row butt">
+          <button mat-button class="btn bt1">创建档案</button>
+          <button mat-button class=" btn">配置测评</button>
+        </div>
+      </div>
+    </div>
+    <div class="col com-col">
+      <img class="computer" src="assets/img/computer.png">
+    </div>
+
+  </div>
+  <div class="contain">
+    <div class="project">
+      <div class="title row">
+        <h2>项目管理</h2>
+        您所创建的项目都在这里
+      </div>
+      <div class="nav">
+        <button mat-button class=" cpp" [class.cp]=types[0] (click)="types[0] = true">测评中</button>
+        <button mat-button class="cpp" [class.cp]=!types[0] (click)="getProduct(0); types[0] = false">测评完成</button>
+        <button mat-button class="cpp por" (click)="getProduct(1)">查看更多</button>
+      </div>
+
+      <!--<div class="c-c">-->
+      <!--<div class="wrapper" data-anim="base wrapper">-->
+      <!--<div class="circle" data-anim="base left"></div>-->
+      <!--<div class="circle" data-anim="base right"></div>-->
+      <!--</div>-->
+      <!--</div>-->
+
+
+      <div class="row out-list">
+        <div class="list col col-auto" *ngFor='let item of products'>
+          <div class="title ">{{item?.name}}</div>
+          <div class="i-c">
+            <div class="date pad10 clb"><img src="assets/img/l-3.png"><span>{{item?.create_time | date: 'yyyy-MM-dd hh:mm:ss'}}</span>
+            </div>
+            <div class="date pad10 clb"><img src="assets/img/l-2.png"><span>{{item?.end_time| date: 'yyyy-MM-dd hh:mm:ss'}}</span>
+            </div>
+            <div class="text pad10"><img src="assets/img/l-1.png">{{item?.products_describe}}</div>
+          </div>
+          <div class="row cen">
+            <div class="col col-auto"  *ngFor='let l of [1,1,1,1]'>
+              <div class="circle" >15%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="contain">
+    <div class="project">
+      <div class="title row">
+        <h2>咨询中心</h2>
+        专业产品与丰富咨询解决您不同需求
+      </div>
+      <div class="nav">
+        <button mat-button class="cpp " [class.cp]=types[1] (click)="types[1] = true">产品交流</button>
+        <button mat-button class="cpp " [class.cp]=!types[1] (click)="types[1] = false">沙龙互动</button>
+      </div>
+      <div class="row out-list">
+        <div class="col col-auto list item" *ngFor='let l of news'>
+          <div class=" row">
+            <div class="col col-auto l-img"><img [src]="l?.img"></div>
+            <div class="col right">
+              <div class="titles">{{l?.title}}</div>
+              <div>{{l?.tips}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+app-file-permiss{
+  .title {
+    border-bottom: 1px solid #999;
+    align-items: center;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+  }
+  .tog{
+    button:nth-child(1){
+      border: 1px solid #8f9bbc;
+      border-radius: 6px;
+      color: #8f9bbc;
+      margin-right: 20px;
+    }
+    button:nth-child(2){
+      border: 1px solid #f1efef;
+      border-radius: 6px;
+      color: #999;
+      background: #f1efef;
+    }
+  }
+  .p-con{
+    margin-top: 20px;
+    .pleft{
+      width: 240px;
+      border-right: 1px solid #999;
+      .nav-left{
+        padding: 10px;
+        text-align: center;
+      }
+    }
+    .p-right{
+      .nav-left{
+        padding: 10px;
+        span{
+          display: inline-flex;
+          width: 100px;
+          margin-left: 40px;
+        }
+      }
+    }
+    .act1{
+      background: #f8fafc;
+    }
+    .act2{
+      background: #fffcfa;
+    }
+  }
+}

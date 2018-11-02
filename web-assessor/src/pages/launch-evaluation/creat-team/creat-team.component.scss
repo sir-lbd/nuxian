@@ -1,0 +1,190 @@
+app-creat-team{
+  $b: #5a72a0;
+  $lb: #494949;
+  $six: #666666;
+  .l-container{
+    width: calc(100% - 4rem);
+    margin: 80px auto 40px;
+    .ht{
+      position: relative;
+      padding: 2px 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 90px;
+      img{
+        position: absolute;
+        right: 10px;
+        top: 6px;
+      }
+    }
+    .centers{
+      text-align: center;
+    }
+    .re{
+      display: inline-flex;
+      color: red;
+    }
+    .tt{
+      padding-left: 60px;
+      input{
+        margin-left: -32px;
+        margin-right: 20px;
+      }
+
+
+    }
+    .top{
+      justify-content: space-between;
+      span{
+        justify-content: center;
+        align-items: center;
+        display: inline-flex;
+        height: 24px;
+        width: 24px;
+        background: #7e8fbc ;
+        border-radius: 100%;
+        margin-right: 0.2rem;
+      }
+      .ob{
+        border: 1px solid #7e8fbc ;
+        color: #7e8fbc ;
+        background: #fff;
+      }
+      .lb{
+        color: #fff;
+      }
+      .b{
+        color: #ccc;
+        border: 1px solid #ccc;
+        background: none;
+      }
+    }
+    .set{
+      margin-top: 1rem;
+      border-radius: 6px;
+      background: #fff;
+      padding: 10px;
+      .pz{
+        position: relative;
+        border-radius: 6px;
+        border: 1px solid #ddd;
+        padding:0 20px 0 10px ;
+      }
+      .pzz{
+        margin-left: 40px;
+        margin-right: 20px;
+      }
+      .pzz::after{
+        position: absolute;
+        top: 50%;
+        right: 1%;
+        transform: translateY(-50%);
+        content: '>';
+        color: #ccc;
+      }
+    }
+    .chose{
+      background: #fff;
+      margin-top: 10px;
+      padding-bottom: 30px;
+      .t1{
+        margin-top: 20px;
+        padding: 10px 0;
+        border-radius: 6px;
+        background: #f8fafc;
+      }
+      .ch{
+        padding: 10px;
+        margin-right: 20px;
+      }
+      .tit{
+        padding: 10px;
+        cursor: pointer;
+      }
+      .ys{
+        border-bottom: 1px solid #7e8fbc;
+        color: #7e8fbc;
+      }
+    }
+    .text{
+      padding-bottom: 30px;
+      background: #fff;
+      margin-top: 10px;
+      .t1{
+        margin-top: 20px;
+        padding: 10px 0;
+        border-radius: 6px;
+        background: #f8fafc;
+      }
+
+      .ch{
+        padding: 10px;
+        margin-top: 20px;
+      }
+      .tit{
+        padding: 10px;
+        cursor: pointer;
+      }
+      .ys{
+        border-bottom: 1px solid #7e8fbc;
+        color: #7e8fbc;
+      }
+
+    }
+    .textcon{
+      padding-bottom: 30px;
+      background: #fff;
+      margin-top: 10px;
+      .t1{
+        margin-top: 20px;
+        padding: 10px 0;
+        border-radius: 6px;
+        input{
+          margin-right: 20px;
+        }
+        input,textarea{
+          width: 260px;
+        }
+      }
+      .tt{
+        padding-left: 20px;
+        margin-right: 20px;
+        width: 120px;
+      }
+      .in{
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        padding-left: 20px;
+        padding-right: 50px;
+      }
+      .ch{
+        padding: 10px;
+        margin-top: 20px;
+      }
+      .tit{
+        padding: 10px;
+        cursor: pointer;
+      }
+      .ys{
+        border-bottom: 1px solid #7e8fbc;
+        color: #7e8fbc;
+      }
+    }
+    .p{
+      padding: 10px 0;
+    }
+  }
+  .im{
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 50px;
+    padding: 10px 30px;
+    background: #fff;
+    .imc{
+      cursor: pointer;
+      background: #7e8fbc;
+      color: #fff;
+      padding: 10px;
+    }
+  }
+}

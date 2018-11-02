@@ -1,0 +1,118 @@
+<div class="pay-container">
+  <div class="top">
+    <div class="row item">
+      <div class="col col-auto f-w"><div class="p">项目组名</div></div>
+      <!--<div class="col col-auto f-w"><div class="p">产品名</div></div>-->
+      <div class="col">
+      <div class="row">
+        <div class="col">量表</div>
+        <div class="col">数量</div>
+        <!--<div class="col">结果反馈形式</div>-->
+        <div class="col">价格</div>
+      </div>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-auto f-w"><div class="p">{{order?.product?.name}}</div></div>
+      <!--<div class="col col-auto f-w"><div class="p">鸿途</div></div>-->
+      <div class="col">
+        <div class="row" *ngFor="let i of order?.detail_price?.assessments">
+          <div class="col">
+            <div >{{i?.name}}</div>
+          </div>
+          <div class="col">
+            <div >{{i?.count}}</div>
+          </div>
+          <!--<div class="col">-->
+            <!--<div >基础报告</div>-->
+          <!--</div>-->
+          <div class="col">
+            <div >{{i?.sum_price}}</div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+  <div class="top">
+    <div class="row item">
+      <div class="col col-auto f-w"><div class="p">反馈形式</div></div>
+      <div class="col">
+        <div class="row">
+          <div class="col">量表</div>
+          <div class="col">数量</div>
+          <!--<div class="col">结果反馈形式</div>-->
+          <div class="col">价格</div>
+        </div>
+
+      </div>
+    </div>
+    <div *ngIf="order?.detail_price?.reports && order?.detail_price?.reports?.length">
+      <div class="row" *ngFor="let i of order?.detail_price?.reports">
+        <div class="col col-auto f-w">
+          <div class="p">
+            <span *ngIf="i?.appraiser_title_id === 0">基础报告</span>
+            <span *ngIf="i?.appraiser_title_id > 0">{{i?.title}}</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row" *ngFor="let i of i?.assessments">
+            <div class="col">
+              <div >{{i?.name}}</div>
+            </div>
+            <div class="col">
+              <div >{{i?.count}}</div>
+            </div>
+            <div class="col">
+              <div >{{i?.sum_price}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!order?.detail_price?.reports || !order?.detail_price?.reports?.length">
+      <div class="row">
+        <div class="col col-auto f-w">
+          <div class="p">
+            <span >基础数据</span>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row" *ngFor="let i of order?.detail_price?.assessments">
+            <div class="col">
+              <div>{{i?.name}}</div>
+            </div>
+            <div class="col">
+              <div>{{i?.count}}</div>
+            </div>
+            <div class="col">
+              <div>0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="top pay-c">
+    <div class="title">选择支付方式</div>
+    <div class="m-c row">
+      <div class="col col-auto m">
+        <img src="assets/img/wx-pay.png">
+      </div>
+      <div class="col col-auto m">
+        <img src="assets/img/ali-pay.png">
+      </div>
+    </div>
+  </div>
+  <div class="row footer">
+    <div class="col"></div>
+    <div class="col col-auto money">合计：<span>{{order?.price}}</span>元</div>
+    <div class="col col-auto">
+      <button mat-button (click)="confirm()">确认支付</button>
+    </div>
+  </div>
+</div>

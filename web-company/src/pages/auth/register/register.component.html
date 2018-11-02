@@ -1,0 +1,37 @@
+<div class="register">
+  <div class="login-con row">
+    <div class="col col-auto login-right">
+      <div class="jg">注册机构号</div>
+      <div *ngIf='togo === 0'>
+        <form (submit)="addSubmit()" #registerForm='ngForm'>
+          <input class="row" type="text" name="userName"
+                 [(ngModel)]='forms.userName' #userName="ngModel"
+                 placeholder="请输入手机号/账号" required>
+          <span [hidden]="forms.pasword || forms.pasword" class="red">账号/手机号不能为空</span>
+          <input class="row" type="password" name="password"
+                 [(ngModel)]='forms.pasword' #Password='ngModel'
+                 placeholder="请输入密码">
+          <input class="row" type="password"
+                 [(ngModel)]='forms.doublePasword' name="doublePasword" #DoubulePassword='ngModel'
+                 placeholder="请再次输入密码">
+          <span class="red" [hidden]='forms.pasword === forms.doublePasword'>两次密码不正确</span>
+          <input type="text" placeholder="公司名称"
+                 [(ngModel)]='forms.company' name="company" #Company='ngModel'
+          >
+          <span class="red" [hidden]='forms.company'>请填写公司</span>
+          <input type="text" placeholder="姓名">
+          <input type="text" placeholder="电话">
+          <div class="yy">上传营业执照</div>
+          <div class="file">
+            <img src="assets/img/add.png" alt="">
+            <input type="file">
+          </div>
+          <button mat-button class="btnd">注册等待审核</button>
+        </form>
+
+      </div>
+      <div class="c9">注册即代表同意《沐贤协议》《隐私政策》</div>
+      <div class="c8" (click)="goLogin()"><span class="c9">已有账号？</span> <span class="c8">登录</span></div>
+    </div>
+  </div>
+</div>

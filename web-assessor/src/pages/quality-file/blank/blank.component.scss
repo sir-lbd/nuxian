@@ -1,0 +1,42 @@
+app-blank{
+  .quality{
+    width: calc(100% - 4rem);
+    margin: 113px auto 0;
+    background: #fff;
+    border-radius: 10px;
+    .b-left{
+      width: 320px;
+      border-right: 1px solid #999;
+      .zs{
+        margin: 20px 0 20px 20px ;
+      }
+      .btn-1,.btn-2{
+        border: 1px solid #8f9bbc;
+        border-radius: 6px;
+      }
+      .btn-1{
+        margin-left: 20px;
+      }
+      .act{
+        background: #7e8fbc;
+        color: #fff;
+      }
+      .b-con{
+        text-align: center;
+        border-top: 1px solid #999;
+        margin-top: 20px;
+        margin-bottom: 40px;
+        .b-title{
+          cursor: pointer;
+          padding-top: 20px;
+        }
+      }
+    }
+    .b-right{
+      width: calc(100% - 320px);
+      padding: 20px;
+    }
+
+  }
+
+}

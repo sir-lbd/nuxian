@@ -1,0 +1,149 @@
+
+<div class="p-container">
+  <div class="row row-end">
+    <i class="iconfont icon-icon-"></i>
+    <input class="in" type="text" >
+    <button class="btn" (click)="toCreate()">创建项目</button>
+  </div>
+  <div class="t-content">
+    <div class="row row-bas">
+      <h3>测评项目</h3>
+      丰富量表组合，直达测评目标
+    </div>
+    <div class="row nav-f" >
+      <div class="col col-auto p-nav" [class.p-act]= "i === type "  (click)=" type = i" *ngFor = 'let b of nav; let i = index'>
+        {{b.title}}
+      </div>
+    </div>
+
+    <div class="row" *ngIf="type === 0">
+      <div class="col col-auto box" *ngFor = 'let item of brandData'>
+        <div class="title m-b">{{item?.name}}</div>
+        <div class="row m-b">
+          <div class="col col-auto six">量表：</div>
+          <div class="col m-b">
+            <div class="row">
+              <span class="col col-auto" *ngFor="let name of item?.assessments_list">
+                <span class="sp" >{{name?.name}}</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="m-b six">测评师：
+          <span *ngFor="let a of appraisers; let i = index;">
+            <span *ngIf="a?.id > item?.lowest_appraiser_title">{{a?.title}}<span *ngIf="i + 1 < appraisers?.length">/</span></span>
+          </span>
+        </div>
+        <div class="row m-b six">
+          <div class="col col-auto">适用人群：</div>
+          <span class="col col-auto">{{item?.audiences}}</span>
+        </div>
+        <div class="row space-around">
+          <div class="col col-auto">
+
+            <div class="col col-auto b-c"> <img src="assets/img/l-4.png">共{{item?.num}}章 {{item?.qnum}}道 {{item?.consum_time / 60}}分钟</div>
+          </div>
+          <div class="col"></div>
+          <button class="col col-auto btn b-btn">查看详情</button>
+        </div>
+
+      </div>
+    </div>
+    <div class="row" *ngIf="type === 1">
+      <div class="col col-auto box" *ngFor = 'let item of sceneData'>
+        <div class="title m-b">{{item?.name}}</div>
+        <div class="row m-b">
+          <div class="col col-auto six">量表：</div>
+          <div class="col m-b">
+            <div class="row">
+              <span class="col col-auto" *ngFor="let name of item?.assessments_list">
+                <span class="sp" >{{name?.name}}</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="m-b six">测评师：
+          <span *ngFor="let a of appraisers; let i = index;">
+            <span *ngIf="a?.id > item?.lowest_appraiser_title">{{a?.title}}<span *ngIf="i + 1 < appraisers?.length">/</span></span>
+          </span>
+        </div>
+        <div class="row m-b six">
+          <div class="col col-auto">适用人群：</div>
+          <span class="col col-auto">{{item?.audiences}}</span>
+        </div>
+        <div class="row space-around">
+          <img src="assets/img/l-4.png">
+          <div class="col col-auto b-c">共{{item?.num}}章 {{item?.qnum}}道 {{item?.consum_time / 60}}分钟</div>
+          <button class="btn b-btn">查看详情</button>
+        </div>
+
+      </div>
+    </div>
+    <div class="row" *ngIf="type === 2">
+      <div class="col col-auto box" *ngFor='let item of assessments'>
+        <div>
+          <div class="title m-b">{{item?.name}}</div>
+          <div class="row m-b six">
+            <div class="col col-auto">适用人群：</div>
+            <span class="col col-auto">{{item?.audiences}}</span>
+          </div>
+          <div class="row space-around">
+            <img src="assets/img/l-4.png" alt="">
+            <div class="col col-auto b-c">共{{item?.num}}章 {{item?.qnum}}道 {{item?.consum_time / 60}}分钟</div>
+            <button class="btn b-btn">查看详情</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="type === 3">
+      <div class="col col-auto box" *ngFor = 'let item of recommendList'>
+        <div class="title m-b">{{item?.name}}</div>
+        <div class="row m-b">
+          <div class="col col-auto six">量表：</div>
+          <div class="col m-b">
+            <div class="row">
+              <span class="col col-auto" *ngFor="let name of item?.assessments_list">
+                <span class="sp" >{{name?.name}}</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="m-b six">测评师：
+          <span *ngFor="let a of appraisers; let i = index;">
+            <span *ngIf="a?.id > item?.lowest_appraiser_title">{{a?.title}}<span *ngIf="i + 1 < appraisers?.length">/</span></span>
+          </span>
+        </div>
+        <div class="row m-b six">
+          <div class="col col-auto">适用人群：</div>
+          <span class="col col-auto">{{item?.audiences}}</span>
+        </div>
+        <div class="row space-around">
+          <div class="col col-auto">
+            <img src="assets/img/l-4.png">
+            <span class="col col-auto b-c">共{{item?.num}}章 {{item?.qnum}}道 {{item?.consum_time / 60}}分钟</span>
+          </div>
+          <div class="col"></div>
+          <button class="col col-auto btn b-btn">查看详情</button>
+        </div>
+
+      </div>
+    </div>
+    <div>
+      <div class="row row-bas">
+        <h3>咨询顾问团队</h3>
+        立足机构人才需求，提供个体发展性咨询
+      </div>
+      <div class="row bot">
+        <div class="col col-auto w-30" *ngFor = 'let f of appraisers'>
+          <div><img [src]="f?.image_url"></div>
+          <div class="b-t b-tt">{{f.title}}</div>
+          <div class="b-t b-c">{{f?.short_description}}</div>
+          <div class="row cho">
+            <div class="col col-auto" *ngFor="let a of f?.label">{{a}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

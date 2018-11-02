@@ -1,0 +1,18 @@
+<div class="search-report">
+  <ul class="search-report-ul row">
+    <li class="col-auto" *ngFor="let report of reports" (click)="goExpertSelect()">
+      <div class="report-header">
+        <em class="icon"><img src="{{report?.icon}}"/> </em>
+        <div class="report-title">
+          <p class="title">{{report?.title}}</p>
+          <p class="subtitle">{{report?.subtitle}}</p>
+        </div>
+      </div>
+      <div class="report-content row">
+        <div class="detail-list col-6" *ngFor="let t of report.details">
+          <span class="label">{{t?.label}}</span>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

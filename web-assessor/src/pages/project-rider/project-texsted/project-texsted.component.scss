@@ -1,0 +1,56 @@
+app-project-texsted{
+  $bl: #5cb5d8;
+  .nl{
+    background: #3498ee;
+  }
+  .xl{
+    background: #33ba99;
+  }
+  .yl{
+    background: #e2ae38;
+  }
+  .zh{
+    background: #f26458;
+  }
+  .lb {
+    color: #999;
+  }
+  .bb{
+    background: #e1e6ef;
+  }
+  .com {
+    width: calc(100% - 4rem);
+    margin: 113px auto 0;
+    background: #fff;
+    border-radius: 10px;
+  }
+  //.................左边公公样式..................
+  .left {
+    width: 320px;
+    border-right: 1px solid #999999;
+    .left-img{
+      margin: 1rem;
+    }
+    .detail-list{
+      padding: 20px;
+      div{
+        padding-bottom: 10px;
+        color: #666666;
+      }
+      span{
+        display: inline-flex;
+        color: #fff;
+        width: 2rem;
+        justify-content: center;
+      }
+    }
+  }
+  //.......................right.....................
+  .right {
+    width: calc(100% - 320px);
+    padding: 0 20px;
+
+
+  }
+
+}

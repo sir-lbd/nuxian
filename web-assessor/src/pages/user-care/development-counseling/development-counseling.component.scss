@@ -1,0 +1,68 @@
+div.counseling{
+
+  ul,li{
+    list-style: none;
+  }
+  p{
+    margin: 2px;
+    padding: 0;
+  }
+  .center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .search-report{
+
+    .search-report-ul{
+      padding:10px;
+      clear:both;
+      li{
+        cursor:pointer;
+        margin: 10px;
+        border:1px solid #E1E6EF;
+        box-shadow: 1px 1px 10px #E1E6EF;
+        border-radius: 5px;
+        width:260px;
+        float: left;
+        .report-header{
+          border-top-left-radius:  2px;
+          border-top-right-radius: 2px;
+          padding: 15px;
+          text-align: center;
+          em.icon{
+            display: block;
+            img{
+              width: 88px;
+              height: 100px;
+              border-radius: 5px;
+            }
+          }
+          .report-title{
+            .title{color:#464647;font-size: 20px;font-weight: bold;padding:15px 5px 0px 10px;}
+            .subtitle{color:#B4B6B9;font-size: 14px;padding:5px;}
+          }
+        }
+        .report-content{
+          padding: 15px;
+          color:#868686;
+          font-size:14px;
+          .detail-list{
+            padding:5px;
+            .label{
+              width:100px;
+              height:30px;
+              line-height: 30px;
+              text-align: center;
+              float: left;
+              color:#7E8FBC;
+              border:1px solid #7E8FBC;
+              border-radius: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

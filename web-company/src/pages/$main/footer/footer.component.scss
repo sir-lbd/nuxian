@@ -1,0 +1,65 @@
+page-footer {
+  min-height: 200px;
+  text-align: center;
+  color: #fff;
+
+  .container {
+    transition: all .5s cubic-bezier(.35, 0, .25, 1);
+    padding-bottom: 80px;
+
+    &.add-padding {
+      padding: 0 16px;
+    }
+
+    .left .line {
+      width: 100%;
+      font-size: 14px;
+
+      &.line-a {
+        padding: 36px 0;
+
+        .col-auto {
+          cursor: pointer;
+          opacity: 0.7;
+          padding: 0 8px;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+
+      &.line-b, &.line-c {
+        padding: 8px 0;
+
+        .t {
+          opacity: 0.7;
+          padding-left: 8px;
+        }
+      }
+
+      &.line-d {
+        padding: 8px 0;
+
+        .col-auto {
+          opacity: 0.7;
+          padding-left: 8px;
+        }
+      }
+
+    }
+
+    .right .line,
+    .newline .line {
+      &.line-a {
+        padding-top: 50px;
+
+        .code-desc {
+          padding: 8px;
+          font-size: 14px;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}

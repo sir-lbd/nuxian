@@ -1,0 +1,62 @@
+<div class="boxed">
+  <div class="row">
+    <div class="col-2 menu" *ngIf="menu && !hideMenu">
+
+      <ng-container *ngIf="menu.headerImage">
+        <div class="banner-widget">
+          <img [src]="menu.headerImage" class="banner">
+        </div>
+        <div class="split-line">
+        </div>
+      </ng-container>
+
+      <div class="menu-content">
+        <div class="menu-title" *ngIf="menu.title">{{menu.title}}</div>
+        <div class="item" *ngFor="let item of menu.items"
+             [class.selected]="item.selected"
+             [class.disabled]="item.disabled"
+             (click)="selectMenuItem(item)">
+          <img *ngIf="item.icon" [src]="item.selected ? item.icon.selected : item.icon.normal" class="item-avatar">
+          <div class="item-content">
+            <div class="item-title">{{item.title}}</div>
+            <div class="item-subtitle" *ngIf="item.subtitle">{{item.subtitle}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col content">
+
+      <button class="small-menu row" *ngIf="hideMenu" [matMenuTriggerFor]="smallMenuRef">
+        <div class="ripple" matRipple></div>
+        <div class="col-auto">
+          <img src="/assets/img/page_menu.png" class="page-menu">
+        </div>
+        <div class="title-wrapper col">
+          <div class="title">{{selectedItem?.title}}</div>
+          <div class="subtitle">{{selectedItem?.subtitle}}</div>
+        </div>
+      </button>
+      <mat-menu #smallMenuRef="matMenu" classList="menu-page-small-menu">
+        <div class="item" *ngFor="let item of menu.items"
+             [class.selected]="item.selected"
+             [class.disabled]="item.disabled"
+             (click)="selectMenuItem(item)">
+          <img *ngIf="item.icon" [src]="item.selected ? item.icon.selected : item.icon.normal" class="item-avatar">
+          <div class="item-content">
+            <div class="item-title">{{item.title}}</div>
+            <div class="item-subtitle" *ngIf="item.subtitle">{{item.subtitle}}</div>
+          </div>
+        </div>
+      </mat-menu>
+
+      <ng-container [ngSwitch]="type">
+        <ng-container *ngSwitchCase="'router'">
+          <router-outlet></router-outlet>
+        </ng-container>
+        <ng-container *ngSwitchCase="'content'">
+          <ng-content></ng-content>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</div>

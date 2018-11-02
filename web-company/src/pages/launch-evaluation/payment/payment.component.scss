@@ -1,0 +1,72 @@
+app-payment {
+  .pay-container {
+    width: 80%;
+    margin: 100px auto;
+    min-height: 100vh;
+    //background: #ffffff;
+    .top {
+      background: #FFFFFF;
+      text-align: center;
+      margin-bottom: 20px;
+      .p {
+        padding: 10px 0;
+      }
+      .item {
+        border-bottom: 1px solid #cccccc;
+      }
+      .row {
+        padding: 10px 0;
+        .f-w {
+          width: 150px;
+        }
+      }
+    }
+    .pay-c {
+      padding: 0 10px;
+      margin-bottom: 0;
+      .title {
+        text-align: left;
+        padding: 10px 6px;
+        border-bottom: 1px solid #eeeeee;
+      }
+      .m-c {
+        .col {
+          padding: 10px;
+        }
+        .m {
+          img {
+            border: 1px solid #eeeeee;
+          }
+        }
+        .m:hover{
+          img {
+            border: 1px solid #e4322e;
+          }
+        }
+      }
+    }
+    .footer {
+      background: #FFFFFF;
+      height: 50px;
+      line-height: 50px;
+      border-top: 1px solid #eeeeee;
+      width: 100%;
+      .money {
+        color: #e4322e;
+        padding: 0 10px;
+        span {
+          font-size: 1.5rem;
+          margin-right: 5px;
+        }
+      }
+      button {
+        height: 40px;
+        line-height: 40px;
+        width: 100px;
+        background: #7e8fbc;
+        color: #FFFFFF;
+        font-weight: lighter;
+      }
+    }
+  }
+}

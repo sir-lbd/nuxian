@@ -1,0 +1,12 @@
+<div class="page content-aptitude">
+  <h1>{{assessment?.name}}</h1>
+  <p class="explain">
+    <{{assessment?.introduce}}>
+  </p>
+
+  <div [innerHtml]="assessment?.description"></div>
+
+  <div class="btn-box" >
+    <button mat-raised-button-button button color="primary" (click)="goAnswer()">开始测评</button>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+
+<div class="project-finish">
+  <div class="finish-title"><input type="text" value="查询"></div>
+  <div class="row finish-con">
+    <div class="col col-auto con-list" *ngFor = 'let fin of finish;let i = index'>
+      <span class="ok" *ngIf = 'fin.finished'>完</span>
+      <div class="con-tit con-name">{{fin.name}}</div>
+      <div class="con-pos">{{fin.position}}</div>
+      <div class="con-tit"  *ngIf = 'fin.conventional.length !== 0'>常规：{{fin.conventional}}</div>
+      <div class="con-tit" [class.wxz] = 'fin.conventional.length === 0' *ngIf = 'fin.conventional.length === 0' (click)="goEchart(0)">未选择常模</div>
+      <div class="con-mat" *ngIf = 'fin.conventional.length !== 0'>匹配：{{fin.match}}</div>
+      <div class="con-mat" [class.wxz] = 'fin.conventional.length === 0' *ngIf = 'fin.conventional.length === 0'>未选择匹配范围</div>
+      <div class="row">
+        <div class="col col-auto con-white" *ngFor = 'let lis of fin.list; let i = index'>
+          <span class="colo" [class.nl]="lis.blue"
+                [class.xl]="lis.green"
+                [class.yl]="lis.orange"
+                [class.zh]="lis.red"
+          >{{lis.title}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
