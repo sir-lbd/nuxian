@@ -85,7 +85,7 @@ oss2==2.4.0
 parse==1.8.2
 parsel==1.2.0
 pbr==1.8.1
-Pillow==3.2.0
+Pillow==6.2.0
 psycopg2==2.7.1
 pyasn1==0.1.9
 pyasn1-modules==0.2.1
