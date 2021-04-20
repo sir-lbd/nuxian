@@ -132,7 +132,7 @@ w3lib==1.18.0
 webencodings==0.5.1
 wechat==0.4.16
 wechatpy==1.7.5
-Werkzeug==0.11.4
+Werkzeug==0.15.3
 WTForms==2.0.2
 xlrd==1.1.0
 XlsXcessive==0.4.1
