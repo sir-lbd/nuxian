@@ -28,7 +28,7 @@
     "ngx-echarts": "^3.2.0",
     "ngx-swiper-wrapper": "^6.4.0",
     "rxjs": "~6.3.2",
-    "swiper": "^4.4.1",
+    "swiper": "^6.5.1",
     "xlsx": "^0.14.0",
     "zone.js": "~0.8.26"
   },
